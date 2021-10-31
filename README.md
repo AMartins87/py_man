@@ -1,31 +1,58 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **PY MAN GAME**
 
-Welcome USER_NAME,
+You can see the live site [here](link/).
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+The Py Man application is a hangman style game with Python programming language as its theme. 
 
-## Reminders
+It is a simple command line application.
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+![Mock up image](assets/wireframes/mockup.JPG)
 
-## Creating the Heroku app
+*Please press **Ctrl** in Windows or **Command** on Mac button and click for any links which you would like to open in a new tab when in the README.md file*
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## **FEATURES**
 
-1. `heroku/python`
-2. `heroku/nodejs`
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+## **FUTURE DEVELOPMENT**
 
-Connect your GitHub repository and deploy as normal.
 
-## Constraints
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## **TESTING**
 
------
-Happy coding!
+[wireframes](assets/wireframes/.png)
+
+
+### **VALIDATOR TESTING**
+
+
+## **BUGS**
+
+-   
+
+## **UNFIXED BUGS**
+
+-   
+
+
+## **DEPLOYMENT**
+
+The site was deployed to GitHub pages. The steps to deploy are as follows:
+1.  In the GitHub repository, navigate to the **Settings** tab, then **Pages** section
+2.  From the **Source** section drop-down menu, select the **Branch:main**
+3.  Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+4.  Now this site is live and published on https://.
+
+
+## **CREDITS**
+
+- **CONTENT**
+
+
+- **CODE**
+ 
+
+- **MEDIA**
+
+
+*This project is for educational purposes only.*
