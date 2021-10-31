@@ -52,7 +52,7 @@ def intro():
         play(words)
     elif play == "N":
         print("\nToo bad, maybe next time!\n")
-        intro()
+        quit_game()
 
 
 intro()
@@ -65,6 +65,15 @@ def play(words):
     # play_word = get_random_word(words)
     # used_letters = []
     # correct_letters = []
+
+
+def quit_game():
+    """Takes user to an end of game screen
+    if they decide not to play again
+    """
+    print("\nThanks for playing, see you soon!\n")
+
+quit_game()
 
 
 def play_again():
