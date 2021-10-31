@@ -13,7 +13,6 @@ def get_random_word(words):
     """
     play_word = random.choice(words)
     return play_word
-# print(get_random_word(words))
 
 
 def intro():
@@ -58,13 +57,20 @@ def intro():
 intro()
 
 
-def play(words):
+def play():
     """
     Function to play
     """
-    # play_word = get_random_word(words)
-    # used_letters = []
-    # correct_letters = []
+    play_word = get_random_word(words)
+    correct_word = "_" * len(play_word)
+    used_letters = []  # guessed letters
+    attempts = 6
+    guessed = incorrect = set()
+    global CORRECT
+
+    while attempts > 0:
+        if not CORRECT:
+            letter = input("\n",correct_word, "Guess a letter:\n")
 
 
 def quit_game():
@@ -73,11 +79,19 @@ def quit_game():
     """
     print("\nThanks for playing, see you soon!\n")
 
+
 quit_game()
 
 
 def play_again():
     """
     Function to restart the game
+    """
+    pass
+
+
+def main():
+    """
+    Run all program functions
     """
     pass
