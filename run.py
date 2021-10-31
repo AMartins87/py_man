@@ -5,6 +5,7 @@ themed words to be guessed
 import random
 from py_words import words
 
+
 def get_random_word(words):
     """
     This function picks a random word from
@@ -12,10 +13,10 @@ def get_random_word(words):
     """
     play_word = random.choice(words)
     return play_word
-print(get_random_word(words))
+# print(get_random_word(words))
 
 
-def py_play(words):
+def intro():
     """
     This functions starts the application
     and gives a little intro text about the
@@ -44,3 +45,30 @@ def py_play(words):
     print("                       `iiiiiiiiii..ii`")
     print("                         `iiiiiiiiii`")
     print("\n")
+
+    play = input("Are you ready to play? (Y/N)\n")
+
+    if play == "Y":
+        play(words)
+    elif play == "N":
+        print("\nToo bad, maybe next time!\n")
+        intro()
+
+
+intro()
+
+
+def play(words):
+    """
+    Function to play
+    """
+    # play_word = get_random_word(words)
+    # used_letters = []
+    # correct_letters = []
+
+
+def play_again():
+    """
+    Function to restart the game
+    """
+    pass
