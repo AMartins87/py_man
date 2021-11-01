@@ -48,7 +48,7 @@ def intro():
     print("                         `iiiiiiiiii`")
     print("\n")
 
-    play = input("Are you ready to play? (Y/N)\n")
+    play = input("Are you ready to play? (Y/N)\n").upper()
 
     if play == "Y":
         get_random_word(words_list)
@@ -69,21 +69,25 @@ def play():
 
     while attempts > 0:
         if not correct:
-            letter = input("\nGuess a letter:\n")
+            letter = input("\nGuess a letter:\n\n--------------\n")
+            # letter = letter.upper()
             if letter in guessed or letter in incorrect:
                 print("Invalid input. Try again,")
             elif letter in play_word:
                 correct_let = list(correct_let)
                 correct_let = "_".join(correct_let)
                 guessed.add(letter)
+                print("\nGreat, this letter is in the word.\n--------------\n")
             elif letter not in play_word:
                 attempts -= 1
                 incorrect.add(letter)
-                print("This character is not in the word.")
+                print("\nThis character is not in the word.\n--------------\n")
                 if attempts == 0:
-                    print("Game over")
+                    print("\nGame over")
+                    break
         else:
             print(f'"Well done,", {play_word}, "is correct!"')
+            break
 
 
 def quit_game():
@@ -93,10 +97,10 @@ def quit_game():
     print("\nThanks for playing, see you soon!\n")
 
 
-def play_again():
-    """
-    Function to restart the game
-    """
+# def play_again():
+#     """
+#     Function to restart the game
+#     """
 
 
 def main():
@@ -105,7 +109,7 @@ def main():
     """
     intro()
     play()
-    play_again()
+    # play_again()
     quit_game()
 
 
