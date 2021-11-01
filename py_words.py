@@ -3,7 +3,7 @@ List of all words used
 in the py_man game
 """
 
-words = [
+words_list = [
     "append",
     "argument",
     "array",

@@ -3,22 +3,25 @@ Hangman style game with Python
 themed words to be guessed
 """
 import random
-from py_words import words
+from py_words import words_list
 
 
-def get_random_word(words):
+def get_random_word(words_list):
     """
     This function picks a random word from
     py_words file
     """
-    play_word = random.choice(words)
+    play_word = random.choice(words_list)
     return play_word
+
+
+get_random_word(words_list)
 
 
 def intro():
     """
     This functions starts the application
-    and gives a little intro text about the
+    and gives an intro text about the
     game and how to play.
     """
     print("\n")
@@ -48,29 +51,39 @@ def intro():
     play = input("Are you ready to play? (Y/N)\n")
 
     if play == "Y":
-        play(words)
+        get_random_word(words_list)
     elif play == "N":
         print("\nToo bad, maybe next time!\n")
         quit_game()
-
-
-intro()
 
 
 def play():
     """
     Function to play
     """
-    play_word = get_random_word(words)
-    correct_word = "_" * len(play_word)
-    used_letters = []  # guessed letters
+    play_word = get_random_word(words_list)
+    correct_let = "_" * len(play_word)
     attempts = 6
     guessed = incorrect = set()
-    global CORRECT
+    correct = False
 
     while attempts > 0:
-        if not CORRECT:
-            letter = input("\n",correct_word, "Guess a letter:\n")
+        if not correct:
+            letter = input("\nGuess a letter:\n")
+            if letter in guessed or letter in incorrect:
+                print("Invalid input. Try again,")
+            elif letter in play_word:
+                correct_let = list(correct_let)
+                correct_let = "_".join(correct_let)
+                guessed.add(letter)
+            elif letter not in play_word:
+                attempts -= 1
+                incorrect.add(letter)
+                print("This character is not in the word.")
+                if attempts == 0:
+                    print("Game over")
+        else:
+            print(f'"Well done,", {play_word}, "is correct!"')
 
 
 def quit_game():
@@ -80,18 +93,20 @@ def quit_game():
     print("\nThanks for playing, see you soon!\n")
 
 
-quit_game()
-
-
 def play_again():
     """
     Function to restart the game
     """
-    pass
 
 
 def main():
     """
     Run all program functions
     """
-    pass
+    intro()
+    play()
+    play_again()
+    quit_game()
+
+
+main()
