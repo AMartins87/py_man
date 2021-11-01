@@ -6,7 +6,7 @@ import random
 from py_words import words_list
 
 
-def get_random_word(words_list):
+def get_random_word():
     """
     This function picks a random word from
     py_words file
@@ -15,7 +15,7 @@ def get_random_word(words_list):
     return play_word
 
 
-get_random_word(words_list)
+get_random_word()
 
 
 def intro():
@@ -48,11 +48,11 @@ def intro():
     print("                         `iiiiiiiiii`")
     print("\n")
 
-    play = input("Are you ready to play? (Y/N)\n").upper()
+    user_choice = input("Are you ready to play? (Y/N)\n").upper()
 
-    if play == "Y":
-        get_random_word(words_list)
-    elif play == "N":
+    if user_choice == "Y":
+        play()
+    elif user_choice == "N":
         print("\nToo bad, maybe next time!\n")
         quit_game()
 
@@ -61,10 +61,11 @@ def play():
     """
     Function to play
     """
-    play_word = get_random_word(words_list)
+    play_word = get_random_word()
     correct_let = "_" * len(play_word)
     attempts = 6
-    guessed = incorrect = set()
+    guessed = set()  # these are empty sets
+    incorrect = set()  # these are empty sets
     correct = False
 
     while attempts > 0:
@@ -72,11 +73,14 @@ def play():
             letter = input("\nGuess a letter:\n\n--------------\n")
             # letter = letter.upper()
             if letter in guessed or letter in incorrect:
-                print("Invalid input. Try again,")
+                print("Invalid input. Try again.")
             elif letter in play_word:
                 correct_let = list(correct_let)
+                print(correct_let)
                 correct_let = "_".join(correct_let)
+                print(correct_let)
                 guessed.add(letter)
+
                 print("\nGreat, this letter is in the word.\n--------------\n")
             elif letter not in play_word:
                 attempts -= 1
@@ -108,7 +112,6 @@ def main():
     Run all program functions
     """
     intro()
-    play()
     # play_again()
     quit_game()
 
