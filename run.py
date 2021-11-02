@@ -62,7 +62,8 @@ def play():
             print("\nInvalid input\n---\n")
             user_choice = input("\nReady to play? (Y/N)\n---\n").upper()
 
-    play_word = get_random_word()
+    play_word = get_random_word().upper()
+    print(play_word)
     correct_let = "_" * len(play_word)
     attempts = 6
     guessed = set()  # these are empty sets
@@ -79,14 +80,19 @@ def play():
                 # an error message will be printed
                 print("Type only alphabetical characters in uppercase.\n---\n")
             elif letter in play_word:
-                correct_let = list(correct_let)
-                correct_let = "_".join(correct_let)
-                guessed.add(letter)
+                # correct_let = list(correct_let)
+                # correct_let = "_".join(correct_let)
+                guessed.add(letter)  # adds letter into console if correct
+                correct_let = [  # shows underscores as placements for letters
+                    # if letter is correct, letter replaces underscore
+                    letter if letter in guessed
+                    else '_' for letter in play_word]
                 print("\nGreat, this letter is in the word.\n---\n")
+                print('\nPY word: ', ' '.join(correct_let))
             elif letter not in play_word:
                 attempts -= 1
                 incorrect.add(letter)
-                print("\nThis character is not in the word.\n---\n")
+                print(f"\n'{letter}' is not in the word.\n---\n")
                 if attempts == 0:
                     print("\nGame over")
                     break
