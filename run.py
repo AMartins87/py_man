@@ -47,7 +47,7 @@ def play():
     """
     This function starts the application
     """
-    user_choice = input("Are you ready to play? (Y/N)\n").upper()
+    user_choice = input("Are you ready to play? (Y/N)\n---\n").upper()
     while user_choice:
         if user_choice == "Y":
             get_random_word()
@@ -59,8 +59,8 @@ def play():
         else:   # if user puts any other character than Y or N,
             # it will print 'Invalid Input' and it will
             # reprint user choice command line.
-            print("Invalid input")
-            user_choice = input("\nAre you ready to play? (Y/N)\n").upper()
+            print("\nInvalid input\n---\n")
+            user_choice = input("\nReady to play? (Y/N)\n---\n").upper()
 
     play_word = get_random_word()
     correct_let = "_" * len(play_word)
@@ -72,9 +72,10 @@ def play():
     while attempts > 0:
         if not correct:
             letter = input("\nGuess a letter:\n---\n")
-            # letter = letter.upper()
             if letter in guessed or letter in incorrect:
-                print(f"You already tried {letter}.")
+                print(f"\nYou already tried {letter}.\n")
+            elif letter.islower() or not letter.isalpha():
+                print("Type only alphabetical characters in uppercase.\n---\n")
             elif letter in play_word:
                 correct_let = list(correct_let)
                 correct_let = "_".join(correct_let)
