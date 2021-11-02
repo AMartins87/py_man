@@ -74,7 +74,9 @@ def play():
             letter = input("\nGuess a letter:\n---\n")
             if letter in guessed or letter in incorrect:
                 print(f"\nYou already tried {letter}.\n")
-            elif letter.islower() or not letter.isalpha():
+            elif letter.islower() or not letter.isalpha():  # if user uses
+                # lowercase or non-alphabetical character,
+                # an error message will be printed
                 print("Type only alphabetical characters in uppercase.\n---\n")
             elif letter in play_word:
                 correct_let = list(correct_let)
