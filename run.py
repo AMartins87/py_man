@@ -5,6 +5,31 @@ themed words to be guessed
 import random
 from py_words import words_list
 
+# Intro text about the game and how to play.
+print("\n")
+print("Welcome to the PY MAN game!")
+print("You may have guessed this is a Python themed game (^_^)")
+print("Rules are same as in the traditional Hangman.")
+print("You will type in letters which you think are part of the word.")
+print("You will have 6 attempts to try and guess the correct word.")
+print("\n")
+print("                        .::::::::::.")
+print("                       .::``::::::::::.")
+print("                       :::..:::::::::::")
+print("                       ````````::::::::")
+print("               .::::::::::::::::::::::: iiiiiii,")
+print("            .:::::::::::::::::::::::::: iiiiiiiii.")
+print("            ::::::::::::::::::::::::::: iiiiiiiiii")
+print("            ::::::::::::::::::::::::::: iiiiiiiiii")
+print("            :::::::::: ,,,,,,,,,,,,,,,,,iiiiiiiiii")
+print("            `::::::::: iiiiiiiiiiiiiiiiiiiiiiiiii`")
+print("               `:::::: iiiiiiiiiiiiiiiiiiiiiii`")
+print("                       iiiiiiii,,,,,,,,")
+print("                       iiiiiiiiiii''iii")
+print("                       `iiiiiiiiii..ii`")
+print("                         `iiiiiiiiii`")
+print("\n")
+
 
 def get_random_word():
     """
@@ -18,49 +43,25 @@ def get_random_word():
 get_random_word()
 
 
-def intro():
-    """
-    This functions starts the application
-    and gives an intro text about the
-    game and how to play.
-    """
-    print("\n")
-    print("Welcome to the PY MAN game!")
-    print("You may have guessed this is a Python themed game (^_^)")
-    print("Rules are same as in the traditional Hangman.")
-    print("You will type in letters which you think are part of the word.")
-    print("You will have 6 attempts to try and guess the correct word.")
-    print("\n")
-    print("                        .::::::::::.")
-    print("                       .::``::::::::::.")
-    print("                       :::..:::::::::::")
-    print("                       ````````::::::::")
-    print("               .::::::::::::::::::::::: iiiiiii,")
-    print("            .:::::::::::::::::::::::::: iiiiiiiii.")
-    print("            ::::::::::::::::::::::::::: iiiiiiiiii")
-    print("            ::::::::::::::::::::::::::: iiiiiiiiii")
-    print("            :::::::::: ,,,,,,,,,,,,,,,,,iiiiiiiiii")
-    print("            `::::::::: iiiiiiiiiiiiiiiiiiiiiiiiii`")
-    print("               `:::::: iiiiiiiiiiiiiiiiiiiiiii`")
-    print("                       iiiiiiii,,,,,,,,")
-    print("                       iiiiiiiiiii''iii")
-    print("                       `iiiiiiiiii..ii`")
-    print("                         `iiiiiiiiii`")
-    print("\n")
-
-    user_choice = input("Are you ready to play? (Y/N)\n").upper()
-
-    if user_choice == "Y":
-        play()
-    elif user_choice == "N":
-        print("\nToo bad, maybe next time!\n")
-        quit_game()
-
-
 def play():
     """
-    Function to play
+    This function starts the application
     """
+    user_choice = input("Are you ready to play? (Y/N)\n").upper()
+    while user_choice:
+        if user_choice == "Y":
+            get_random_word()
+            break
+        elif user_choice == "N":
+            print("\nToo bad, maybe next time!\n")
+            quit_game()
+            break
+        else:   # if user puts any other character than Y or N,
+            # it will print 'Invalid Input' and it will
+            # reprint user choice command line.
+            print("Invalid input")
+            user_choice = input("\nAre you ready to play? (Y/N)\n").upper()
+
     play_word = get_random_word()
     correct_let = "_" * len(play_word)
     attempts = 6
@@ -70,22 +71,19 @@ def play():
 
     while attempts > 0:
         if not correct:
-            letter = input("\nGuess a letter:\n\n--------------\n")
+            letter = input("\nGuess a letter:\n---\n")
             # letter = letter.upper()
             if letter in guessed or letter in incorrect:
-                print("Invalid input. Try again.")
+                print(f"You already tried {letter}.")
             elif letter in play_word:
                 correct_let = list(correct_let)
-                print(correct_let)
                 correct_let = "_".join(correct_let)
-                print(correct_let)
                 guessed.add(letter)
-
-                print("\nGreat, this letter is in the word.\n--------------\n")
+                print("\nGreat, this letter is in the word.\n---\n")
             elif letter not in play_word:
                 attempts -= 1
                 incorrect.add(letter)
-                print("\nThis character is not in the word.\n--------------\n")
+                print("\nThis character is not in the word.\n---\n")
                 if attempts == 0:
                     print("\nGame over")
                     break
@@ -111,7 +109,7 @@ def main():
     """
     Run all program functions
     """
-    intro()
+    play()
     # play_again()
     quit_game()
 
