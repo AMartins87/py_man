@@ -35,7 +35,7 @@ words_list = [
     "mixin",
     "module",
     "object",
-    "operator"
+    "operator",
     "output",
     "parameter",
     "parse",

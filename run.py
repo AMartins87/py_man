@@ -82,8 +82,10 @@ def play():
                 # an error message will be printed
                 print("Type only alphabetical characters in uppercase.\n---\n")
             elif letter in play_word:
-                # correct_let = list(correct_let)
-                # correct_let = "_".join(correct_let)
+                if len(guessed) == len(play_word):
+                    correct = True
+                    print(f'\n"Well done,", {play_word}, "is correct!"')
+                    break
                 guessed.add(letter)  # adds the guessed letter into a set
                 correct_let = [
                     # shows underscores as placements for letters
@@ -100,9 +102,6 @@ def play():
                 incorrect.add(letter)
                 # adds the incorrectly guessed letter into a set
                 print(f"\n'{letter}' is not in the word.\n---\n")
-        else:
-            print(f'\n"Well done,", {play_word}, "is correct!"')
-            break
 
 
 def quit_game():
