@@ -63,45 +63,73 @@ def play():
             print("\nInvalid input\n---\n")
             user_choice = input("\nReady to play? (Y/N)\n---\n").upper()
 
+    # play_word = get_random_word().upper()
+    # print(play_word)
+    # correct_let = "_" * len(play_word)
+    # incorrect_attempts = 6
+    # guessed = set() # set of guessed letters
+    # incorrect = set()  # set of incorrectly guessed letters
+    # correct = False
     play_word = get_random_word().upper()
-    print(play_word)
-    correct_let = "_" * len(play_word)
+    play_word = [i.upper() for i in play_word]
+    print(f'\n', *play_word)
     incorrect_attempts = 6
-    guessed = set()  # set of guessed letters
-    incorrect = set()  # set of incorrectly guessed letters
-    correct = False
+    guessed = ''
 
     while incorrect_attempts > 0:
-        if not correct:
-            letter = input("\nGuess a letter:\n---\n")
-            if letter in guessed or letter in incorrect:
-                print(f"\nYou already tried {letter}.\n")
-            elif letter.islower() or not letter.isalpha():
-                # if user uses
-                # lowercase or non-alphabetical character,
-                # an error message will be printed
-                print("Type only alphabetical characters in uppercase.\n---\n")
-            elif letter in play_word:
-                if len(guessed) == len(play_word):
-                    correct = True
-                    print(f'\n"Well done,", {play_word}, "is correct!"')
-                    break
-                guessed.add(letter)  # adds the guessed letter into a set
-                correct_let = [
-                    # shows underscores as placements for letters
-                    # if letter is correct, letter replaces underscore
-                    letter if letter in guessed
-                    else '_' for letter in play_word]
-                print("\nGreat, this letter is in the word.\n---\n")
-                print('\nPY word: ', ' '.join(correct_let))
-            elif letter not in play_word:
-                if incorrect_attempts == 0:
-                    print("\nGame over")
-                    break
-                incorrect_attempts -= 1
-                incorrect.add(letter)
-                # adds the incorrectly guessed letter into a set
+        incorrect = 0
+        for i in play_word:
+            if i in guessed:
+                print(i, end=' ')
+            else:
+                print('_', end=' ')
+                incorrect += 1
+        if incorrect == 0:
+            print("\n\nWell done, you got it! {} is correct" .format(*play_word))
+            break
+        letter = input("\n\nGuess a letter:\n---\n")
+        letter = letter.upper()
+        guessed += letter
+        if letter not in play_word:
+            incorrect_attempts -= 1
+            if incorrect_attempts == 0:
+                print("\n\nGame over, the PY word was {}".format(*play_word))
+            else:
                 print(f"\n'{letter}' is not in the word.\n---\n")
+
+    # while incorrect_attempts > 0:
+    #   incorrect = 0
+    #     if len(guessed) == len(play_word):
+    #         correct = True
+    #         print(f'\n"Well done,", {play_word}, "is correct!"')
+    #         break
+
+    #     if not correct:
+    #         letter = input("\nGuess a letter:\n---\n")
+    #         if letter in guessed or letter in incorrect:
+    #             print(f"\nYou already tried {letter}.\n")
+    #         elif letter.islower() or not letter.isalpha():
+    #             # if user uses
+    #             # lowercase or non-alphabetical character,
+    #             # an error message will be printed
+    #             print("Type only alphabetical characters in uppercase.\n---\n")
+    #         elif letter in play_word:
+    #             guessed.add(letter)  # adds the guessed letter into a set
+    #             correct_let = [
+    #                 # shows underscores as placements for letters
+    #                 # if letter is correct, letter replaces underscore
+    #                 letter if letter in guessed
+    #                 else '_' for letter in play_word]
+    #             print("\nGreat, this letter is in the word.\n---\n")
+    #             print('\nPY word: ', ' '.join(correct_let))
+    #         elif letter not in play_word:
+    #             if incorrect_attempts == 0:
+    #                 print("\nGame over")
+    #                 break
+    #             incorrect_attempts -= 1
+    #             incorrect.add(letter)
+    #             # adds the incorrectly guessed letter into a set
+    #             print(f"\n'{letter}' is not in the word.\n---\n")
 
 
 def quit_game():
