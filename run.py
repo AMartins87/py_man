@@ -80,7 +80,7 @@ def play():
         incorrect = 0
         for i in play_word:
             if i in guessed:
-                print(i, end=' ')
+                print(i, end=' ')  # end method to keep all letters in one row
             else:
                 print('_', end=' ')
                 incorrect += 1
