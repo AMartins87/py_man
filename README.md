@@ -28,8 +28,8 @@ It is a simple command line application.
 
 ## **BUGS**
 
--   I had an issue with the game when word was guessed successfully, the game wouldn't finish until user used all lives available. The issue got resolved upon changing the code which checked the lenght of the guessed letters and the play_word(masked word). However this worked only on words with non-repeating characters. If word, e.g mixin, had two or more repeating character inside, the game wouldn't count it in. The count method and counter would have to be implemented. 
-I have fixed the issue by creating a new for loop and end method. 
+-   I had an issue with the game when word was guessed successfully, the game wouldn't finish until user used all lives available. The issue got resolved upon changing the code which checked the lenght of the guessed letters and the play_word(masked word). However this worked only on words with non-repeating characters. If word, e.g mixin, had two or more repeating character inside, the game wouldn't count it in. The count method and counter need to be implemented. 
+
 
 ## **UNFIXED BUGS**
 
@@ -46,6 +46,7 @@ The site was deployed to GitHub pages. The steps to deploy are as follows:
 
 
 ## **CREDITS**
+- Thanks to tutors from Tutor Support - namely Sean Murphy and John Traas.
 
 - **CONTENT**
 
