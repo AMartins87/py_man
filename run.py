@@ -66,19 +66,40 @@ def play():
     print(play_word)
     correct_let = "_" * len(play_word)
     incorrect_attempts = 6
-    guessed = []  # set of guessed letters
-    incorrect = []  # set of incorrectly guessed letters
+    guessed = []  # list of correctly guessed letters
+    incorrect = []  # list of incorrectly guessed letters
     correct = False
 
     while incorrect_attempts > 0:
         if len(guessed) == len(play_word):
             correct = True
-            print(f'\nWell done, {play_word}, is correct!')
+            print(f'\nWell done! {play_word} is correct!\n')
             break
         if not correct:
             letter = input("\nGuess a letter:\n---\n").upper()
             if letter in guessed or letter in incorrect:
                 print(f"\nYou already tried '{letter}'.\n")
+            elif letter not in play_word and incorrect_attempts == 0:
+                play_again()
+                # print("\nGame over")
+                # print(r"""
+                #                /^\/^\
+                #             _|__|  O|
+                #     \/     /~     \_/ \
+                #     \____|__________/  \
+                #             \_______    \
+                #                     \    \
+                #                     /    /                          \
+                #                   /     /                            \
+                #                  /     /            _----_          \ \
+                #                 /     /         _-~       ~-_        \ \
+                #                (     (       -~      _--_    ~-_     / |
+                #                 \    ~-____~-     -~     ~-_    ~-_ / /
+                #                  \            -~            -~       /
+                #                     ~---____-~                 ~-___-
+
+                #     """)
+                # break
             elif letter in play_word:
                 guessed.append(letter)  # adds the guessed letter into a set
                 correct_let = [
@@ -88,14 +109,12 @@ def play():
                     else '_' for letter in play_word]
                 print(f"\nGreat, '{letter}' is in the word.\n---\n")
                 print('\nPY word: ', ' '.join(correct_let))
-            elif letter not in play_word:
-                if incorrect_attempts == 0:
-                    print("\nGame over")
-                    break
+            else:
                 incorrect_attempts -= 1
                 incorrect.append(letter)
                 # adds the incorrectly guessed letter into a set
-                print(f"\n'{letter}' is not in the word.\n---\n")
+                print(f"\n'{letter}' is not in the word.")
+                print(f"\n You have {incorrect_attempts} attemps left.")
 
 
 def quit_game():
@@ -105,10 +124,30 @@ def quit_game():
     # print("\nThanks for playing, see you soon!\n")
 
 
-# def play_again():
-#     """
-#     Function to restart the game
-#     """
+def play_again():
+    """
+    Function to restart the game
+    """
+    print("\n Oh no, the python got you !!!")
+    print(r"""
+                    /^\/^\
+                _|__|  O|
+         \/     /~    \_/ \
+          \____|________/  \
+                \_______    \
+                        \    \
+                        /    /                          \
+                        /     /                            \
+                        /     /            _----_          \ \
+                    /     /         _-~       ~-_        \ \
+                    (     (       -~      _--_    ~-_     / |
+                    \    ~-____~-     -~     ~-_    ~-_ / /
+                        \            -~            -~       /
+                        ~---____-~                 ~-___-
+
+        """)
+    print("\n")
+    input("Would you like to play again?  (Y/N)")
 
 
 def main():
@@ -116,7 +155,7 @@ def main():
     Run all program functions
     """
     play()
-    # play_again()
+    play_again()
     exit()
 
 
