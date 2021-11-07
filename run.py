@@ -79,7 +79,7 @@ def play():
             letter = input("\nGuess a letter:\n---\n").upper()
             if letter in guessed or letter in incorrect:
                 print(f"\nYou already tried '{letter}'.\n---\n")
-            elif len(letter) != 1:
+            elif len(letter) != 1 or not letter.isalpha():
                 print("\nOnly one alphabetical character allowed at time.\n---\n")
             elif letter not in play_word and incorrect_attempts == 0:
                 play_again()
