@@ -59,7 +59,7 @@ def play():
         else:   # if user puts any other character than Y or N,
             # it will print 'Invalid Input' and it will
             # reprint user choice command line.
-            print("\nInvalid input\n---\n")
+            print("\nInvalid input - only answer Y for yes or N for no\n---\n")
             user_choice = input("\nReady to play? (Y/N)\n---\n").upper()
 
     play_word = get_random_word().upper()
@@ -73,33 +73,16 @@ def play():
     while incorrect_attempts > 0:
         if len(guessed) == len(play_word):
             correct = True
-            print(f'\nWell done! {play_word} is correct!\n')
+            print(f"\nWell done! {play_word} is correct!\n")
             break
         if not correct:
             letter = input("\nGuess a letter:\n---\n").upper()
             if letter in guessed or letter in incorrect:
-                print(f"\nYou already tried '{letter}'.\n")
+                print(f"\nYou already tried '{letter}'.\n---\n")
+            elif len(letter) != 1:
+                print("\nOnly one alphabetical character allowed at time.\n---\n")
             elif letter not in play_word and incorrect_attempts == 0:
                 play_again()
-                # print("\nGame over")
-                # print(r"""
-                #                /^\/^\
-                #             _|__|  O|
-                #     \/     /~     \_/ \
-                #     \____|__________/  \
-                #             \_______    \
-                #                     \    \
-                #                     /    /                          \
-                #                   /     /                            \
-                #                  /     /            _----_          \ \
-                #                 /     /         _-~       ~-_        \ \
-                #                (     (       -~      _--_    ~-_     / |
-                #                 \    ~-____~-     -~     ~-_    ~-_ / /
-                #                  \            -~            -~       /
-                #                     ~---____-~                 ~-___-
-
-                #     """)
-                # break
             elif letter in play_word:
                 guessed.append(letter)  # adds the guessed letter into a set
                 correct_let = [
@@ -113,8 +96,8 @@ def play():
                 incorrect_attempts -= 1
                 incorrect.append(letter)
                 # adds the incorrectly guessed letter into a set
-                print(f"\n'{letter}' is not in the word.")
-                print(f"\n You have {incorrect_attempts} attemps left.")
+                print(f"\n'{letter}' is not in the word.\n---\n")
+                print(f"\n You have {incorrect_attempts} attemps left.\n")
 
 
 def quit_game():
@@ -130,24 +113,36 @@ def play_again():
     """
     print("\n Oh no, the python got you !!!")
     print(r"""
-                    /^\/^\
+                   /^\/^\
                 _|__|  O|
-         \/     /~    \_/ \
-          \____|________/  \
+           \/      /~  \_/\
+            \___|________/ \
                 \_______    \
                         \    \
                         /    /                          \
-                        /     /                            \
-                        /     /            _----_          \ \
-                    /     /         _-~       ~-_        \ \
-                    (     (       -~      _--_    ~-_     / |
-                    \    ~-____~-     -~     ~-_    ~-_ / /
-                        \            -~            -~       /
+                       /    /                            \
+                      /    /            _----_           \\
+                     /    /         _-~       ~-_         \\
+                    (    (       -~      _--_    ~-_      / |
+                     \    ~-____~-     -~     ~-_    ~-_ / /
+                      \            -~            -~       /
                         ~---____-~                 ~-___-
 
         """)
     print("\n")
-    input("Would you like to play again?  (Y/N)")
+    user_choice = input("Would you like to play again? (Y/N)\n---\n").upper()
+    while user_choice:
+        if user_choice == "Y":
+            get_random_word()
+            break
+        elif user_choice == "N":
+            print("\n No worries, see you soon!\n")
+            raise SystemExit
+        else:  # if user puts any other character than Y or N,
+            # it will print 'Invalid Input' and it will
+            # reprint user choice command line.
+            print("\nInvalid input - only answer Y for yes or N for no\n---\n")
+            user_choice = input("\n Would you like to play? (Y/N)\n---\n").upper()
 
 
 def main():
