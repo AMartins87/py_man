@@ -30,6 +30,7 @@ It is a simple command line application.
 
 -   I had an issue with the game when word was guessed successfully, the game wouldn't finish until user used all lives available. The issue got resolved upon changing the code which checked the lenght of the guessed letters and the play_word(masked word). However this worked only on words with non-repeating characters. If word, e.g mixin, had two or more repeating character inside, the game wouldn't count it in. The count method and counter need to be implemented. 
 
+- I originally used [Pypi](https://pypi.org/project/colorama/) to implement red and green colors to differentiate between correct and incorrect input. However it didn't work when deployed to Heroku and I reverted to using a class. 
 
 ## **UNFIXED BUGS**
 
@@ -63,7 +64,7 @@ The steps to deploy are as follows:
 
 - I used **w3schools** and **docs.python** which helped me understand Python functions and method better. 
 
-- I used [Pypi](https://pypi.org/project/colorama/) to implement red and green colors to differentiate between correct and incorrect input. 
+- I used colors from [GeeksforGeeks](https://www.geeksforgeeks.org/print-colors-python-terminal/) to implement red, green and yellow colors to differentiate between correct and incorrect input. 
 
 - **CONTENT**
 

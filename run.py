@@ -12,9 +12,11 @@ class ColourText:
     Changes colors of text based on
     correct & incorrect input
     """
+    BOLD = '\033[1m'
     WHITE = '\033[0m'
     GREEN = '\033[92m'
     RED = '\033[91m'
+    YELLOW = '\033[93m'
 
 
 # Intro text about the game and how to play.
@@ -77,10 +79,14 @@ def play(first_play=True):
         user_choice = "Y"
 
     if len(user_choice) == 0:
-        print("\n     Invalid input - only type Y for yes,"
-              "or type N for no\n---\n")
+        print(f"\n     Invalid input - only type {ColourText.BOLD}"
+              f"{ColourText.YELLOW} Y for yes {ColourText.WHITE}"
+              f" or type {ColourText.BOLD}{ColourText.YELLOW} "
+              f"N for no{ColourText.WHITE}\n     ---\n")
         user_choice = input("\n     Ready to play?"
                             " (Y/N)\n     ---\n").upper()
+        delete_last_line()
+        print(f"     {user_choice}")
     else:
         while len(user_choice) >= 1:
             if user_choice == "Y":
@@ -96,26 +102,32 @@ def play(first_play=True):
             else:   # if user puts any other character than Y or N,
                 # it will print 'Invalid Input' and it will
                 # reprint user choice command line.
-                print("\n     Invalid input - only type Y for yes or"
-                      "or type N for no\n---\n")
+                print(f"\n     Invalid input - only type {ColourText.BOLD}"
+                      f" {ColourText.YELLOW}Y for yes "
+                      f" {ColourText.BOLD}{ColourText.WHITE} or"
+                      f"or type {ColourText.BOLD}{ColourText.YELLOW}N for "
+                      f"no{ColourText.BOLD}{ColourText.WHITE}\n     ---\n")
                 user_choice = input("\n     Ready to play?"
                                     " (Y/N)\n     ---\n").upper()
+                delete_last_line()
 
     play_word = get_random_word().upper()
+    # play_word = []
     print(play_word)
     correct_let = "_" * len(play_word)
     incorrect_attempts = 6
     print(f"\n     ......\n     You have {incorrect_attempts}"
           " lives left\n     ......\n")
-    guessed = []  # list of correctly guessed letters
-    incorrect = []  # list of incorrectly guessed letters
+    guessed = []  # set of correctly guessed letters
+    incorrect = []  # set of incorrectly guessed letters
     correct = False
 
     while incorrect_attempts > 0:
         if len(guessed) == len(play_word):
             correct = True
-            print(f"\n     {ColourText.GREEN}Well done! {play_word} "
-                  f"is correct!\n     ......\n{ColourText.WHITE}")
+            print(f"\n    Well done! {ColourText.BOLD}{ColourText.GREEN}"
+                  f"{play_word}{ColourText.WHITE}"
+                  f" {ColourText.BOLD} is correct!\n     ......\n")
             user_wins()
         if not correct:
             letter = input("\n     Guess a letter:\n     ---\n").upper()
@@ -127,7 +139,9 @@ def play(first_play=True):
                 print("\n     Only one alphabetical character"
                       " allowed at time.\n     ---\n")
             elif incorrect_attempts == 1:
-                print(f"     The correct word was {play_word}.")
+                print(f"\n     The correct word was {ColourText.BOLD}"
+                      f"{ColourText.YELLOW}{play_word}{ColourText.BOLD}"
+                      f"{ColourText.WHITE}.")
                 user_loses()
             elif letter in play_word:
                 guessed.append(letter)  # adds the guessed letter into a set
@@ -160,7 +174,7 @@ def user_loses():
     """
     Function to restart the game
     """
-    print("\n      You lossssssssst, the python got you !!!")
+    print("\n     You lossssssssst, the python got you !!!")
     print(r"""
                    /^\/^\
                 _|__|  O|
