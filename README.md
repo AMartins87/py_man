@@ -38,11 +38,23 @@ It is a simple command line application.
 
 ## **DEPLOYMENT**
 
-The site was deployed to GitHub pages. The steps to deploy are as follows:
-1.  In the GitHub repository, navigate to the **Settings** tab, then **Pages** section
-2.  From the **Source** section drop-down menu, select the **Branch:main**
-3.  Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
-4.  Now this site is live and published on https://.
+The project was deployed using Code Institutes mock terminal for Heroku.
+
+The steps to deploy are as follows:
+1. Save all your work and push all changes. Make sure you added \n to all your input code.
+2. This project doesn't have any external libraries therefore my requirements.txt file is empty. Otherwise I'd have to follow this step: 
+    *type in terminal pip3 freeze > requirements.txt, then save and push the changes into GitHub*
+3. Create a new app in Heroku.
+4. Select **'New'** and **'Create new app'**.
+5. Name the new app and click **'Create new app'**. Name should be something unique, otherwise it won't allow us to continue
+6. Go to the settings tab and find the Config Vars section. Click **'Reveal Config Vars'**. Here you should upload content from creds.json file. I don't use it in my project, there are no sensitive data to be protected, therefore I skipped this step.
+7. While still in Config Vars, add into KEY: **PORT** and VALUE: **8000**. 
+8. After select **'BuildPack'** which is below Config Vars. Select **Python** and save, then select **Nodejs** and save again. It has to be in this specific order. If you have made a mistake, you can drag the Python buildpack and move to the first place. 
+9. Click on **'Deploy'** and select your deploy method and repository. You do this by entering the repository name as it is in GitHub then click *'search'*.
+10. Click on **'Connect'** button on selected repository.
+11. I chose **'Enable Automatic Deploys'** to rebuild my app automatically every time I push any changes in Gitpod.
+12. Now deploy by scrolling down and click the **'Deploy Branch'** button. Heroku will notify you that the app was successfully deployed with a button to view the app.
+13. The live app address is **https://py-man.herokuapp.com/**.
 
 
 ## **CREDITS**
