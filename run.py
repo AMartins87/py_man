@@ -4,8 +4,6 @@ themed words to be guessed
 """
 import random
 import sys
-# from colorama import Fore
-# from colorama import Style
 from py_words import words_list
 
 
@@ -68,31 +66,40 @@ def delete_last_line():
     sys.stdout.write('\x1b[2K')
 
 
-def play():
+def play(first_play=True):
     """
     This function starts the application
     """
+    if first_play:
+        user_choice = input("\n     Are you ready to play?"
+                            " (Y/N)\n     ---\n").upper()
+    else:
+        user_choice = "Y"
 
-    user_choice = input("\n     Are you ready to play?"
-                        " (Y/N)\n     ---\n").upper()
-    while user_choice:
-        if user_choice == "Y":
-            delete_last_line()
-            print("     YES\n")
-            get_random_word()
-            break
-        elif user_choice == "N":
-            delete_last_line()
-            print('     NO')
-            print("\n     Too bad, maybe next time!\n")
-            raise SystemExit
-        else:   # if user puts any other character than Y or N,
-            # it will print 'Invalid Input' and it will
-            # reprint user choice command line.
-            print("\n     Invalid input - only type Y for yes or press enter,"
-                  "or type N for no\n---\n")
-            user_choice = input("\n     Ready to play?"
-                                " (Y/N)\n     ---\n").upper()
+    if len(user_choice) == 0:
+        print("\n     Invalid input - only type Y for yes,"
+              "or type N for no\n---\n")
+        user_choice = input("\n     Ready to play?"
+                            " (Y/N)\n     ---\n").upper()
+    else:
+        while len(user_choice) >= 1:
+            if user_choice == "Y":
+                delete_last_line()
+                print("     YES\n")
+                get_random_word()
+                break
+            elif user_choice == "N":
+                delete_last_line()
+                print('     NO')
+                print("\n     Too bad, maybe next time!\n")
+                raise SystemExit
+            else:   # if user puts any other character than Y or N,
+                # it will print 'Invalid Input' and it will
+                # reprint user choice command line.
+                print("\n     Invalid input - only type Y for yes or"
+                      "or type N for no\n---\n")
+                user_choice = input("\n     Ready to play?"
+                                    " (Y/N)\n     ---\n").upper()
 
     play_word = get_random_word().upper()
     print(play_word)
@@ -112,13 +119,15 @@ def play():
             user_wins()
         if not correct:
             letter = input("\n     Guess a letter:\n     ---\n").upper()
+            delete_last_line()
+            print(f"     {letter}")
             if letter in guessed or letter in incorrect:
                 print(f"\n     You already tried '{letter}'.\n     ---\n")
             elif len(letter) != 1 or not letter.isalpha():
                 print("\n     Only one alphabetical character"
                       " allowed at time.\n     ---\n")
-            elif letter not in play_word and incorrect_attempts == 0:
-                print(f"  The correct word was {play_word}.")
+            elif incorrect_attempts == 1:
+                print(f"     The correct word was {play_word}.")
                 user_loses()
             elif letter in play_word:
                 guessed.append(letter)  # adds the guessed letter into a set
@@ -176,12 +185,12 @@ def user_loses():
         if user_choice == "Y":
             delete_last_line()
             print("     YES")
-            play()
+            play(False)
             break
         elif user_choice == "N":
             delete_last_line()
             print('     NO')
-            print("\n      No worries, see you soon!\n")
+            print("\n     No worries, see you soon!\n")
             raise SystemExit
         else:  # if user puts any other character than Y or N,
             # it will print 'Invalid Input' and it will
@@ -201,8 +210,7 @@ def user_wins():
     while user_choice:
         if user_choice == "Y":
             delete_last_line()
-            print("     YES")
-            play()
+            play(False)
             break
         elif user_choice == "N":
             delete_last_line()
@@ -223,9 +231,6 @@ def main():
     Run all program functions
     """
     play()
-    user_loses()
-    user_wins()
-    exit()
 
 
 main()
