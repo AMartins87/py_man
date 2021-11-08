@@ -4,6 +4,8 @@ themed words to be guessed
 """
 import random
 import sys
+from colorama import Fore
+from colorama import Style
 from py_words import words_list
 
 # Intro text about the game and how to play.
@@ -95,7 +97,8 @@ def play():
     while incorrect_attempts > 0:
         if len(guessed) == len(play_word):
             correct = True
-            print(f"\n     Well done! {play_word} is correct!\n     ......\n")
+            print(f"\n     {Fore.GREEN}Well done! {play_word} "
+                  f"is correct!{Style.RESET_ALL}\n     ......\n")
             user_wins()
         if not correct:
             letter = input("\n     Guess a letter:\n     ---\n").upper()
@@ -114,13 +117,15 @@ def play():
                     # if letter is correct, letter replaces underscore
                     letter if letter in guessed
                     else '_' for letter in play_word]
-                print(f"\n     Great, '{letter}' is in the word.\n     ---\n")
+                print(f"\n     {Fore.GREEN} Great, '{letter}' "
+                      f"is in the word.{Style.RESET_ALL}\n     ---\n")
                 print('\n     PY word: ', ' '.join(correct_let))
             else:
                 incorrect_attempts -= 1
                 incorrect.append(letter)
                 # adds the incorrectly guessed letter into a set
-                print(f"\n     '{letter}' is not in the word.\n     ---\n")
+                print(f"\n     {Fore.RED}'{letter}' "
+                      f"is not in the word.{Style.RESET_ALL}\n     ---\n")
                 print(f"\n     ......\n     You have {incorrect_attempts}"
                       " lives left\n     ......\n")
 
@@ -192,7 +197,7 @@ def user_wins():
         elif user_choice == "N":
             delete_last_line()
             print('     NO')
-            print("\n      No worries, see you soon!\n")
+            print("\n     No worries, see you soon!\n")
             raise SystemExit
         else:  # if user puts any other character than Y or N,
             # it will print 'Invalid Input' and it will
