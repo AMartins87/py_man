@@ -1,6 +1,6 @@
 # **PY MAN GAME**
 
-You can see the live site [here](link/).
+You can see the live site [here](https://py-man.herokuapp.com/).
 
 The Py Man application is a hangman style game with Python programming language as its theme. 
 
