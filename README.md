@@ -52,6 +52,7 @@ The site was deployed to GitHub pages. The steps to deploy are as follows:
 
 
 - **CODE**
+- Code from function delete_last_line() was specifically written for my need by a felow coder on stackoverflow.com as I have tried various solutions to what I wanted to achieve and nothing has worked. 
  
 
 - **MEDIA**

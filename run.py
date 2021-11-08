@@ -3,6 +3,7 @@ Hangman style game with Python
 themed words to be guessed
 """
 import random
+import sys
 from py_words import words_list
 
 # Intro text about the game and how to play.
@@ -43,17 +44,34 @@ def get_random_word():
 get_random_word()
 
 
+# This function has been created by a coder on stackoverflow.com
+# Due credit given in README.md file
+def delete_last_line():
+    '''
+    Use this function to delete the last line in the STDOUT
+    '''
+    # cursor up one line
+    sys.stdout.write('\x1b[1A')
+
+    # delete last line
+    sys.stdout.write('\x1b[2K')
+
+
 def play():
     """
     This function starts the application
     """
+
     user_choice = input("Are you ready to play? (Y/N)\n---\n").upper()
     while user_choice:
         if user_choice == "Y":
+            delete_last_line()
+            print("YES")
             get_random_word()
             break
         elif user_choice == "N":
-            print("\nToo bad, maybe next time!\n")
+            delete_last_line()
+            print('NO')
             raise SystemExit
         else:   # if user puts any other character than Y or N,
             # it will print 'Invalid Input' and it will
@@ -136,9 +154,13 @@ def play_again():
     user_choice = input("Would you like to play again? (Y/N)\n---\n").upper()
     while user_choice:
         if user_choice == "Y":
+            delete_last_line()
+            print("YES")
             play()
             break
         elif user_choice == "N":
+            delete_last_line()
+            print('NO')
             print("\n No worries, see you soon!\n")
             raise SystemExit
         else:  # if user puts any other character than Y or N,
