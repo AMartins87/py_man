@@ -6,7 +6,7 @@ The Py Man application is a hangman style game with Python programming language 
 
 It is a simple command line application.
 
-![Mock up image](assets/wireframes/mockup.JPG)
+![Mock up image](assets/images/mockup.JPG)
 
 *Please press **Ctrl** in Windows or **Command** on Mac button and click for any links which you would like to open in a new tab when in the README.md file*
 
