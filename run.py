@@ -4,9 +4,20 @@ themed words to be guessed
 """
 import random
 import sys
-from colorama import Fore
-from colorama import Style
+# from colorama import Fore
+# from colorama import Style
 from py_words import words_list
+
+
+class Colour:
+    """
+    Changes colors of text based on
+    correct & incorrect input
+    """
+    WHITE = '\033[0m'
+    GREEN = '\033[92m'
+    RED = '\033[91m'
+
 
 # Intro text about the game and how to play.
 print("     Welcome to the PY MAN game!")
@@ -97,8 +108,8 @@ def play():
     while incorrect_attempts > 0:
         if len(guessed) == len(play_word):
             correct = True
-            print(f"\n     {Fore.GREEN}Well done! {play_word} "
-                  f"is correct!{Style.RESET_ALL}\n     ......\n")
+            print(f"\n     {Colour.GREEN}Well done! {play_word} "
+                  f"is correct!\n     ......\n{Colour.WHITE}")
             user_wins()
         if not correct:
             letter = input("\n     Guess a letter:\n     ---\n").upper()
@@ -117,15 +128,15 @@ def play():
                     # if letter is correct, letter replaces underscore
                     letter if letter in guessed
                     else '_' for letter in play_word]
-                print(f"\n     {Fore.GREEN} Great, '{letter}' "
-                      f"is in the word.{Style.RESET_ALL}\n     ---\n")
+                print(f"\n     {Colour.GREEN} Great, '{letter}' "
+                      f"is in the word.\n     ---\n{Colour.WHITE}")
                 print('\n     PY word: ', ' '.join(correct_let))
             else:
                 incorrect_attempts -= 1
                 incorrect.append(letter)
                 # adds the incorrectly guessed letter into a set
-                print(f"\n     {Fore.RED}'{letter}' "
-                      f"is not in the word.{Style.RESET_ALL}\n     ---\n")
+                print(f"\n     {Colour().RED}'{letter}' "
+                      f"is not in the word.\n     ---\n{Colour.WHITE}")
                 print(f"\n     ......\n     You have {incorrect_attempts}"
                       " lives left\n     ......\n")
 
