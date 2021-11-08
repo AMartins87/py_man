@@ -90,8 +90,9 @@ def play():
             # it will print 'Invalid Input' and it will
             # reprint user choice command line.
             print("\n     Invalid input - only type Y for yes or press enter,"
-                  "     or type N for no\n---\n")
-            user_choice = input("\nReady to play? (Y/N)\n---\n").upper()
+                  "or type N for no\n---\n")
+            user_choice = input("\n     Ready to play?"
+                                " (Y/N)\n     ---\n").upper()
 
     play_word = get_random_word().upper()
     print(play_word)
