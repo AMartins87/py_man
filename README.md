@@ -20,7 +20,7 @@ It is a simple command line application.
 
 ## **TESTING**
 
-[wireframes](assets/wireframes/.png)
+[wireframes](assets/images/Python-Man.png)
 
 
 ### **VALIDATOR TESTING**
@@ -33,7 +33,6 @@ It is a simple command line application.
 - I originally used [Pypi](https://pypi.org/project/colorama/) to implement red and green colors to differentiate between correct and incorrect input. However it didn't work when deployed to Heroku and I reverted to using a class. 
 
 ## **UNFIXED BUGS**
-
 -   
 
 
@@ -75,8 +74,3 @@ The steps to deploy are as follows:
 
 - 
  
-
-- **MEDIA**
-
-
-*This project is for educational purposes only.*

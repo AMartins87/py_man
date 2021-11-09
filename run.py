@@ -125,10 +125,21 @@ def play(first_play=True):
     while incorrect_attempts > 0:
         if len(guessed) == len(play_word):
             correct = True
-            print(f"\n    Well done! {ColourText.BOLD}{ColourText.GREEN}"
+            print(f"\n     Well done! {ColourText.BOLD}{ColourText.GREEN}"
                   f"{play_word}{ColourText.WHITE}"
                   f" {ColourText.BOLD} is correct!\n     ......\n")
-            user_wins()
+            print(r"""
+                           _
+                          /(|
+                         (  :
+                       __ \ `\_____
+                     (____)   |
+                    (____)|   |
+                     (___).___|
+                      (__)___.|___
+
+            """)
+            restart()
         if not correct:
             letter = input("\n     Guess a letter:\n     ---\n").upper()
             delete_last_line()
@@ -142,7 +153,25 @@ def play(first_play=True):
                 print(f"\n     The correct word was {ColourText.BOLD}"
                       f"{ColourText.YELLOW}{play_word}{ColourText.BOLD}"
                       f"{ColourText.WHITE}.")
-                user_loses()
+                print("\n     You lossssssssst, the python got you !!!")
+                print(r"""
+                            /^\/^\
+                          _|__|  O|
+                    \/      /~  \_/\
+                     \___|________/ \
+                         \_______    \
+                                 \    \
+                                 /    /                          \
+                                /    /                            \
+                               /    /            _----_           \\
+                              /    /         _-~       ~-_         \\
+                             (    (       -~      _--_    ~-_      / |
+                              \    ~-____~-     -~     ~-_    ~-_ / /
+                               \            -~            -~       /
+                                 ~---____-~                 ~-___-
+
+                    """)
+                restart()
             elif letter in play_word:
                 guessed.append(letter)  # adds the guessed letter into a set
                 correct_let = [
@@ -163,38 +192,22 @@ def play(first_play=True):
                       " lives left\n     ......\n")
 
 
-def quit_game():
-    """Takes user to an end of game screen
-    if they decide not to play again
-    """
-    # print("\nThanks for playing, see you soon!\n")
-
-
-def user_loses():
+def restart():
     """
     Function to restart the game
     """
-    print("\n     You lossssssssst, the python got you !!!")
-    print(r"""
-                   /^\/^\
-                _|__|  O|
-           \/      /~  \_/\
-            \___|________/ \
-                \_______    \
-                        \    \
-                        /    /                          \
-                       /    /                            \
-                      /    /            _----_           \\
-                     /    /         _-~       ~-_         \\
-                    (    (       -~      _--_    ~-_      / |
-                     \    ~-____~-     -~     ~-_    ~-_ / /
-                      \            -~            -~       /
-                        ~---____-~                 ~-___-
-
-        """)
-    print("\n")
-    user_choice = input("     Would you like to play again?"
+    user_choice = input("     Would you like to play again? "
                         "(Y/N)\n     ---\n").upper()
+    if len(user_choice) == 0:
+        print(f"\n     Invalid input - only type {ColourText.BOLD}"
+              f"{ColourText.YELLOW} Y for yes {ColourText.WHITE}"
+              f" or type {ColourText.BOLD}{ColourText.YELLOW} "
+              f"N for no{ColourText.WHITE}\n     ---\n")
+        user_choice = input("\n     Ready to play?"
+                            " (Y/N)\n     ---\n").upper()
+        delete_last_line()
+        print(f"     {user_choice}")
+
     while user_choice:
         if user_choice == "Y":
             delete_last_line()
@@ -204,40 +217,17 @@ def user_loses():
         elif user_choice == "N":
             delete_last_line()
             print('     NO')
-            print("\n     No worries, see you soon!\n")
+            print("\n     Thanks for playing, see you soon!\n")
             raise SystemExit
         else:  # if user puts any other character than Y or N,
             # it will print 'Invalid Input' and it will
             # reprint user choice command line.
-            print("\n     Invalid input - only type Y for yes or press enter,"
-                  " or type N for no\n---\n")
-            user_choice = input("\n      Would you like"
-                                " to play? (Y/N)\n---\n").upper()
-
-
-def user_wins():
-    """
-    Takes user to restart screen
-    """
-    user_choice = input("     Would you like to play again?"
-                        "(Y/N)\n     ---\n").upper()
-    while user_choice:
-        if user_choice == "Y":
-            delete_last_line()
-            play(False)
-            break
-        elif user_choice == "N":
-            delete_last_line()
-            print('     NO')
-            print("\n     No worries, see you soon!\n")
-            raise SystemExit
-        else:  # if user puts any other character than Y or N,
-            # it will print 'Invalid Input' and it will
-            # reprint user choice command line.
-            print("\n     Invalid input - only type Y for yes or press enter,"
-                  " or type N for no\n---\n")
-            user_choice = input("\n      Would you like"
-                                " to play? (Y/N)\n---\n").upper()
+            print(f"\n     Invalid input - only type {ColourText.BOLD}"
+                  f"{ColourText.YELLOW} Y for yes {ColourText.WHITE}"
+                  f" or type {ColourText.BOLD}{ColourText.YELLOW} "
+                  f"N for no{ColourText.WHITE}\n     ---\n")
+            user_choice = input("     Would you like to play again? "
+                                "(Y/N)\n     ---\n").upper()
 
 
 def main():
