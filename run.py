@@ -13,27 +13,26 @@ class ColourText:
     correct & incorrect input
     """
     BOLD = '\033[1m'
-    WHITE = '\033[0m'
     GREEN = '\033[92m'
     RED = '\033[91m'
     YELLOW = '\033[93m'
+    WHITE = '\033[0m'
 
 
 # Intro text about the game and how to play.
 print(f"     {ColourText.BOLD}{ColourText.YELLOW}Welcome to the PY MAN game!"
       f"{ColourText.BOLD}{ColourText.WHITE}")
 print("     You may have guessed this is a Python themed game (^_^)")
-print("     Rules are same as in the traditional Hangman.")
+print("     Rules are same as in the traditional Hangman. You have 6 lives.")
 print("     You will type in letters which you think are part of the word.")
 print("     Only single alphabetical characters are allowed.")
-print("     You have 6 lives. Good luck!")
+print("     Good luck!")
 print("                             .::::::::::.")
 print("                            .::``::::::::::.")
 print("                            :::..:::::::::::")
 print("                            ````````::::::::")
 print("                    .::::::::::::::::::::::: iiiiiii,")
 print("                 .:::::::::::::::::::::::::: iiiiiiiii.")
-print("                 ::::::::::::::::::::::::::: iiiiiiiiii")
 print("                 ::::::::::::::::::::::::::: iiiiiiiiii")
 print("                 :::::::::: ,,,,,,,,,,,,,,,,,iiiiiiiiii")
 print("                 `::::::::: iiiiiiiiiiiiiiiiiiiiiiiiii`")
@@ -84,8 +83,8 @@ def play(first_play=True):
               f"{ColourText.YELLOW} Y for yes {ColourText.WHITE}"
               f" or type {ColourText.BOLD}{ColourText.YELLOW} "
               f"N for no{ColourText.WHITE}\n     ---\n")
-        user_choice = input("\n     Ready to play?"
-                            " (Y/N)\n     ---\n").upper()
+        user_choice = user_choice = input("\n     Are you ready to play?"
+                                          " (Y/N)\n     ---\n").upper()
         delete_last_line()
         print(f"     {user_choice}")
     else:
@@ -100,7 +99,8 @@ def play(first_play=True):
                 print('     NO')
                 print("\n     Too bad, maybe next time!\n")
                 raise SystemExit
-            else:   # if user puts any other character than Y or N,
+            else:
+                # if user puts any other character than Y or N,
                 # it will print 'Invalid Input' and it will
                 # reprint user choice command line.
                 print(f"\n     Invalid input - only type {ColourText.BOLD}"
@@ -221,7 +221,8 @@ def restart():
             print('     NO')
             print("\n     Thanks for playing, see you soon!\n")
             raise SystemExit
-        else:  # if user puts any other character than Y or N,
+        else:
+            # if user puts any other character than Y or N,
             # it will print 'Invalid Input' and it will
             # reprint user choice command line.
             print(f"\n     Invalid input - only type {ColourText.BOLD}"

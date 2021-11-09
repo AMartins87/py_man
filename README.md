@@ -16,6 +16,8 @@ It is a simple command line application.
     - Command line asking user for input if they want to play
 ![Initial screen](assets/images/initial_screen.JPG)
 
+
+
 ## **FUTURE DEVELOPMENT**
 
 
