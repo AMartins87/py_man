@@ -79,15 +79,15 @@ def play(first_play=True):
     else:
         user_choice = "Y"
 
-    if len(user_choice) == 0:
-        print(f"\n     Invalid input - only type {ColourText.BOLD}"
-              f"{ColourText.YELLOW} Y for yes {ColourText.WHITE}"
-              f" or type {ColourText.BOLD}{ColourText.YELLOW} "
-              f"N for no{ColourText.WHITE}\n     ---\n")
-        user_choice = user_choice = input("\n     Are you ready to play?"
-                                          " (Y/N)\n     ---\n").upper()
-        delete_last_line()
-        print(f"     {user_choice}")
+    while len(user_choice) == 0:
+        if len(user_choice) == 0:
+            print(f"\n     Invalid input - only type {ColourText.BOLD}"
+                  f"{ColourText.YELLOW} Y for yes {ColourText.WHITE}"
+                  f" or type {ColourText.BOLD}{ColourText.YELLOW} "
+                  f"N for no{ColourText.WHITE}\n     ---\n")
+            user_choice = input("\n     Are you ready to play?"
+                                " (Y/N)\n     ---\n").upper()
+
     else:
         while len(user_choice) >= 1:
             if user_choice == "Y":
@@ -106,13 +106,13 @@ def play(first_play=True):
                 # reprint user choice command line.
                 print(f"\n     Invalid input - only type {ColourText.BOLD}"
                       f" {ColourText.YELLOW}Y for yes "
-                      f" {ColourText.BOLD}{ColourText.WHITE} or"
+                      f" {ColourText.BOLD}{ColourText.WHITE} "
                       f"or type {ColourText.BOLD}{ColourText.YELLOW}N for "
                       f"no{ColourText.BOLD}{ColourText.WHITE}\n     ---\n")
-                user_choice = input("\n     Are you ready to "
-                                    "play? (Y/N)\n     "
-                                    "---\n").upper()
-                delete_last_line()
+            user_choice = input("\n     Are you ready to "
+                                "play? (Y/N)\n     "
+                                "---\n").upper()
+            delete_last_line()
 
     play_word = get_random_word().upper()
     # play_word = []
@@ -156,9 +156,10 @@ def play(first_play=True):
                 print("\n     Only one alphabetical character"
                       " allowed at time.\n     ---\n")
             elif incorrect_attempts == 1:
+                print(f"\n     {ColourText.BOLD}{ColourText.CYAN}PY word: "
+                      f"{ColourText.WHITE} " + " ".join(correct_let) + "\n")
                 print(f"\n     The correct word was {ColourText.BOLD}"
-                      f"{ColourText.YELLOW}{play_word}{ColourText.BOLD}"
-                      f"{ColourText.WHITE}.")
+                      f"{ColourText.YELLOW}{play_word}{ColourText.WHITE}.")
                 print("\n     You lossssssssst, the python got you !!!")
                 print(r"""
                             /^\/^\
@@ -195,49 +196,106 @@ def play(first_play=True):
                 # adds the incorrectly guessed letter into a set
                 print(f"\n     {ColourText.RED}'{letter}' "
                       f"is not in the word.\n     ---\n{ColourText.WHITE}")
+                print(f"\n     ......\n     You have {incorrect_attempts}"
+                      " lives left\n     ......")
                 print(f"\n     {ColourText.BOLD}{ColourText.CYAN}PY word: "
                       f"{ColourText.WHITE} " + " ".join(correct_let) + "\n")
-                print(f"\n     ......\n     You have {incorrect_attempts}"
-                      " lives left\n     ......\n")
 
 
 def restart():
     """
     Function to restart the game
     """
-    user_choice = input("     Would you like to play again? "
+    user_choice = input("     Would you like to play again?"
                         "(Y/N)\n     ---\n").upper()
-    if len(user_choice) == 0:
-        print(f"\n     Invalid input - only type {ColourText.BOLD}"
-              f"{ColourText.YELLOW} Y for yes {ColourText.WHITE}"
-              f" or type {ColourText.BOLD}{ColourText.YELLOW} "
-              f"N for no{ColourText.WHITE}\n     ---\n")
-        user_choice = input("\n     Ready to play?"
-                            " (Y/N)\n     ---\n").upper()
-        delete_last_line()
-        print(f"     {user_choice}")
 
-    while user_choice:
-        if user_choice == "Y":
-            delete_last_line()
-            print("     YES")
-            play(False)
-            break
-        elif user_choice == "N":
-            delete_last_line()
-            print('     NO')
-            print("\n     Thanks for playing, see you soon!\n")
-            raise SystemExit
-        else:
-            # if user puts any other character than Y or N,
-            # it will print 'Invalid Input' and it will
-            # reprint user choice command line.
+    while len(user_choice) == 0:
+        if len(user_choice) == 0:
             print(f"\n     Invalid input - only type {ColourText.BOLD}"
                   f"{ColourText.YELLOW} Y for yes {ColourText.WHITE}"
                   f" or type {ColourText.BOLD}{ColourText.YELLOW} "
                   f"N for no{ColourText.WHITE}\n     ---\n")
-            user_choice = input("     Would you like to play again? "
+            user_choice = input("     Would you like to play again?"
                                 "(Y/N)\n     ---\n").upper()
+
+    else:
+        while len(user_choice) >= 1:
+            if user_choice == "Y":
+                delete_last_line()
+                # print("     YES\n")
+                play(False)
+                break
+            elif user_choice == "N":
+                delete_last_line()
+                print('     NO')
+                print("\n     Thanks for playing, see you soon!\n")
+                raise SystemExit
+            else:
+                # if user puts any other character than Y or N,
+                # it will print 'Invalid Input' and it will
+                # reprint user choice command line.
+                print(f"\n     Invalid input - only type {ColourText.BOLD}"
+                      f" {ColourText.YELLOW}Y for yes "
+                      f" {ColourText.BOLD}{ColourText.WHITE} "
+                      f"or type {ColourText.BOLD}{ColourText.YELLOW}N for "
+                      f"no{ColourText.BOLD}{ColourText.WHITE}\n     ---\n")
+            user_choice = input("     Would you like to play again?"
+                                "(Y/N)\n     ---\n").upper()
+            delete_last_line()
+
+    # while user_choice:
+    #     if user_choice == "Y":
+    #         delete_last_line()
+    #         play(False)
+    #         break
+    #     elif user_choice == "N":
+    #         delete_last_line()
+    #         print('     NO')
+    #         print("\n     No worries, see you soon!\n")
+    #         raise SystemExit
+    #     else:
+    #         # if user puts any other character than Y or N,
+    #         # it will print 'Invalid Input' and it will
+    #         # reprint user choice command line.
+    #         print(f"\n     Invalid input - only type {ColourText.BOLD}"
+    #               f"{ColourText.YELLOW} Y for yes {ColourText.WHITE}"
+    #               f" or type {ColourText.BOLD}{ColourText.YELLOW} "
+    #               f"N for no{ColourText.WHITE}\n     ---\n")
+    #         user_choice = input("\n      Would you like"
+    #                             " to play? (Y/N)\n---\n").upper()
+
+    # user_choice = input("     Would you like to play again? "
+    #                     "(Y/N)\n     ---\n").upper()
+    # if len(user_choice) == 0:
+    #     print(f"\n     Invalid input - only type {ColourText.BOLD}"
+    #           f"{ColourText.YELLOW} Y for yes {ColourText.WHITE}"
+    #           f" or type {ColourText.BOLD}{ColourText.YELLOW} "
+    #           f"N for no{ColourText.WHITE}\n     ---\n")
+    #     user_choice = input("     Would you like to play again? "
+    #                         "(Y/N)\n     ---\n").upper()
+    #     delete_last_line()
+
+    # while user_choice:
+    #     if user_choice == "Y":
+    #         delete_last_line()
+    #         print("     YES")
+    #         play(False)
+    #         break
+    #     elif user_choice == "N":
+    #         delete_last_line()
+    #         print('     NO')
+    #         print("\n     Thanks for playing, see you soon!\n")
+    #         raise SystemExit
+    #     else:
+    #         # if user puts any other character than Y or N,
+    #         # it will print 'Invalid Input' and it will
+    #         # reprint user choice command line.
+    #         print(f"\n     Invalid input - only type {ColourText.BOLD}"
+    #               f"{ColourText.YELLOW} Y for yes {ColourText.WHITE}"
+    #               f" or type {ColourText.BOLD}{ColourText.YELLOW} "
+    #               f"N for no{ColourText.WHITE}\n     ---\n")
+    #         user_choice = input("     Would you like to play again? "
+    #                             "(Y/N)\n     ---\n").upper()
 
 
 def main():
