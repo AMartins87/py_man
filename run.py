@@ -117,11 +117,12 @@ def play(first_play=True):
     print(play_word)
     correct_let = "_" * len(play_word)
     incorrect_attempts = 6
-    print(f"\n     ......\n     You have {incorrect_attempts}"
-          " lives left\n     ......\n")
     guessed = []  # set of correctly guessed letters
     incorrect = []  # set of incorrectly guessed letters
     correct = False
+    print(f"     PY word: " + " ".join(correct_let) + "\n")
+    print(f"\n     ......\n     You have {incorrect_attempts}"
+          " lives left\n     ......\n")
 
     while incorrect_attempts > 0:
         if len(guessed) == len(play_word):
