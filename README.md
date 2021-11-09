@@ -11,8 +11,10 @@ It is a simple command line application.
 *Please press **Ctrl** in Windows or **Command** on Mac button and click for any links which you would like to open in a new tab when in the README.md file*
 
 ## **FEATURES**
-
-
+###  **Initial screen**
+    - Welcome text with explanation of the game and how to play
+    - Command line asking user for input if they want to play
+![Initial screen](assets/images/initial_screen.JPG)
 
 ## **FUTURE DEVELOPMENT**
 

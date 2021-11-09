@@ -20,7 +20,8 @@ class ColourText:
 
 
 # Intro text about the game and how to play.
-print("     Welcome to the PY MAN game!")
+print(f"     {ColourText.BOLD}{ColourText.YELLOW}Welcome to the PY MAN game!"
+      f"{ColourText.BOLD}{ColourText.WHITE}")
 print("     You may have guessed this is a Python themed game (^_^)")
 print("     Rules are same as in the traditional Hangman.")
 print("     You will type in letters which you think are part of the word.")
@@ -126,8 +127,8 @@ def play(first_play=True):
         if len(guessed) == len(play_word):
             correct = True
             print(f"\n     Well done! {ColourText.BOLD}{ColourText.GREEN}"
-                  f"{play_word}{ColourText.WHITE}"
-                  f" {ColourText.BOLD} is correct!\n     ......\n")
+                  f"{play_word}{ColourText.BOLD}"
+                  f" {ColourText.WHITE} is correct!\n     ......\n")
             print(r"""
                            _
                           /(|
@@ -137,6 +138,7 @@ def play(first_play=True):
                     (____)|   |
                      (___).___|
                       (__)___.|___
+
 
             """)
             restart()
