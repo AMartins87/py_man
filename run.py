@@ -13,6 +13,7 @@ class ColourText:
     correct & incorrect input
     """
     BOLD = '\033[1m'
+    CYAN = '\033[36m'
     GREEN = '\033[92m'
     RED = '\033[91m'
     YELLOW = '\033[93m'
@@ -108,8 +109,9 @@ def play(first_play=True):
                       f" {ColourText.BOLD}{ColourText.WHITE} or"
                       f"or type {ColourText.BOLD}{ColourText.YELLOW}N for "
                       f"no{ColourText.BOLD}{ColourText.WHITE}\n     ---\n")
-                user_choice = input("\n     Ready to play?"
-                                    " (Y/N)\n     ---\n").upper()
+                user_choice = input("\n     Are you ready to "
+                                    "play? (Y/N)\n     "
+                                    "---\n").upper()
                 delete_last_line()
 
     play_word = get_random_word().upper()
@@ -120,7 +122,8 @@ def play(first_play=True):
     guessed = []  # set of correctly guessed letters
     incorrect = []  # set of incorrectly guessed letters
     correct = False
-    print(f"     PY word: " + " ".join(correct_let) + "\n")
+    print(f"     {ColourText.BOLD}{ColourText.CYAN}PY word:{ColourText.WHITE}"
+          f" " + " ".join(correct_let) + "\n")
     print(f"\n     ......\n     You have {incorrect_attempts}"
           " lives left\n     ......\n")
 
@@ -184,13 +187,16 @@ def play(first_play=True):
                     else '_' for letter in play_word]
                 print(f"\n     {ColourText.GREEN} Great, '{letter}' "
                       f"is in the word.\n     ---\n{ColourText.WHITE}")
-                print('\n     PY word: ', ' '.join(correct_let))
+                print(f"\n     {ColourText.BOLD}{ColourText.CYAN}PY word: "
+                      f"{ColourText.WHITE} " + " ".join(correct_let) + "\n")
             else:
                 incorrect_attempts -= 1
                 incorrect.append(letter)
                 # adds the incorrectly guessed letter into a set
                 print(f"\n     {ColourText.RED}'{letter}' "
                       f"is not in the word.\n     ---\n{ColourText.WHITE}")
+                print(f"\n     {ColourText.BOLD}{ColourText.CYAN}PY word: "
+                      f"{ColourText.WHITE} " + " ".join(correct_let) + "\n")
                 print(f"\n     ......\n     You have {incorrect_attempts}"
                       " lives left\n     ......\n")
 
