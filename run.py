@@ -85,7 +85,7 @@ def play(first_play=True):
     while len(user_choice) == 0:
         if len(user_choice) == 0:
             print(f"\n     Invalid input - only type {ColorText.BOLD}"
-                  f"{ColorText.YELLOW} Y for yes {ColorText.WHITE}"
+                  f"{ColorText.YELLOW} Y for yes{ColorText.WHITE}"
                   f" or type {ColorText.BOLD}{ColorText.YELLOW} "
                   f"N for no{ColorText.WHITE}\n     ---\n")
             user_choice = input("\n     Are you ready to play?"
@@ -130,15 +130,15 @@ def play(first_play=True):
     correct = False
     print(f"     {ColorText.BOLD}{ColorText.CYAN}PY word:{ColorText.WHITE}"
           f" " + " ".join(correct_let) + "\n")
-    print(f"\n     ......\n     You have {incorrect_attempts}"
-          " lives left\n     ......\n")
+    print(f"\n     .....................\n     You have {incorrect_attempts}"
+          " lives left\n     .....................\n")
 
     while incorrect_attempts > 0:
         if len(guessed) == len(play_word):
             correct = True
             print(f"\n     Well done! {ColorText.BOLD}{ColorText.GREEN}"
                   f"{play_word}{ColorText.BOLD}"
-                  f" {ColorText.WHITE} is correct!\n     ......\n")
+                  f" {ColorText.WHITE} is correct!\n     ...\n")
             print(r"""
                            _
                           /(|
@@ -157,10 +157,12 @@ def play(first_play=True):
             delete_last_line()
             print(f"     {letter}")
             if letter in guessed or letter in incorrect:
-                print(f"\n     You already tried '{letter}'.\n     ---\n")
+                print(f"\n     {ColorText.YELLOW}You already tried"
+                      f" '{letter}'.\n     ---\n{ColorText.WHITE}")
             elif len(letter) != 1 or not letter.isalpha():
-                print("\n     Only one alphabetical character"
-                      " allowed at time.\n     ---\n")
+                print(f"\n     {ColorText.YELLOW}Only one alphabetical"
+                      f" character allowed at time.\n"
+                      f"     ---\n{ColorText.WHITE}")
             elif incorrect_attempts == 1:
                 print(f"\n     {ColorText.BOLD}{ColorText.CYAN}PY word: "
                       f"{ColorText.WHITE} " + " ".join(correct_let) + "\n")
@@ -202,8 +204,9 @@ def play(first_play=True):
                 # adds the incorrectly guessed letter into a set
                 print(f"\n     {ColorText.RED}'{letter}' "
                       f"is not in the word.\n     ---\n{ColorText.WHITE}")
-                print(f"\n     ......\n     You have {incorrect_attempts}"
-                      " lives left\n     ......")
+                print(f"\n     .....................\n     You have "
+                      f"{incorrect_attempts} lives left"
+                      f"\n     .....................")
                 print(f"\n     {ColorText.BOLD}{ColorText.CYAN}PY word: "
                       f"{ColorText.WHITE} " + " ".join(correct_let) + "\n")
 
@@ -213,13 +216,13 @@ def restart():
     Function to restart the game
     """
     user_choice = input("     Would you like to play again?"
-                        "(Y/N)\n     ---\n").upper()
+                        " (Y/N)\n     ---\n").upper()
 
     while len(user_choice) == 0:
         if len(user_choice) == 0:
             print(f"\n     Invalid input - only type {ColorText.BOLD}"
                   f"{ColorText.YELLOW} Y for yes {ColorText.WHITE}"
-                  f" or type {ColorText.BOLD}{ColorText.YELLOW} "
+                  f"or type {ColorText.BOLD}{ColorText.YELLOW} "
                   f"N for no{ColorText.WHITE}\n     ---\n")
             user_choice = input("     Would you like to play again?"
                                 " (Y/N)\n     ---\n").upper()

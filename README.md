@@ -2,9 +2,9 @@
 
 You can see the live site [here](https://py-man.herokuapp.com/).
 
-The Py Man application is a hangman style game with Python programming language as its theme. 
+The PY MAN application is a hangman style game with Python programming language as its theme. 
 
-It is a simple command line application.
+It is a simple terminal game, which runs on a mock terminal on Heroku.
 
 ![Mock up image](assets/images/mockup.JPG)
 
@@ -12,13 +12,34 @@ It is a simple command line application.
 
 ## **FEATURES**
 ###  **Initial screen**
-    - Welcome text with explanation of the game and how to play
+    - Welcome text with rules of the game and how to play
     - Command line asking user for input if they want to play
 ![Initial screen](assets/images/initial_screen.JPG)
 
+###  **Random word & number of lives**
+    - If user continues in the game, the next screen will show title PY word and the same number of underscores as letters in the guessed word.
+    - Users are reminded here that have 6 lives.
+    - Command line prompting users to guess a letter
+![Random word](assets/images/initial_screen.JPG)
 
+### **Correct and incorrect guess**
+    - If letter is guessed correctly, text is printed in green telling the user that letter is correct and the PY word will update
+    - If guessed is incorect, the message announcing this is printed in red color
+
+### **Winning screen**
+    - If user wins, the correct guessed word is announced and highlighted in yellow color
+    - Message announcing user lost the game is printed on the screen together with python graphic
+    - Command line asking users if they would like to play again
+![Winning screen](assets/images/winning_screen.JPG)
+
+### **Losing screen**
+    - If user loses, the correct guessed word is announced and highlighted in yellow color
+    - Message announcing user lost the game is printed on the screen together with python graphic
+    - Command line asking users if they would like to play again
+![Losing screen](assets/images/losing_screen.JPG)
 
 ## **FUTURE DEVELOPMENT**
+    - Take players names down and create score counter with high scores table
 
 
 
