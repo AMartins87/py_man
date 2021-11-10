@@ -16,6 +16,10 @@ It is a simple terminal game, which runs on a mock terminal on Heroku.
 - Command line asking user for input if they want to play
 ![Initial screen](assets/images/initial_screen.JPG)
 
+- If user chooses to not play the game, a message will be printed and game will end
+![Random word screen](assets/images/no_play.JPG)
+
+
 ###  **Random word & number of lives**
 - If user continues in the game, the next screen will show title PY word and the same number of underscores as letters in the guessed word.
 - Users are reminded here that have 6 lives.
@@ -39,37 +43,49 @@ It is a simple terminal game, which runs on a mock terminal on Heroku.
 - Command line asking users if they would like to play again
 ![Losing screen](assets/images/losing_screen.JPG)
 
+### **Playing again**
+- When users finish the game, they will be asked if they would like to play again
+- ***Yes*** answer will restart the game and new word will be randomly selected
+- ***No*** will end the game and message will be printed into the terminal
+![Play again?](assets/images/play_again_no.JPG)
+
 ## **FUTURE DEVELOPMENT**
 - Take players' names down
 - Create a score counter with high scores table
 
+## **DATA MODEL**
+- 
 
 ## **TESTING**
 
 ### I have manually tested the project by doing the following:
 
-- Tested python code through a PEP8 Linter using (http://pep8online.com/) and fixed any errors.
-![PEP8](assets/images/PEP8_linter.JPG)
-
+- I have two yellow warnings in my python linter in Gitpod due to my two else clauses which don't have break statements
 - Manually tested the game in local terminal in Gitpod and in the Code Institute Heroku terminal once deployed
 - I tested the game by using giving invalid inputs to confirm error messages work as intended
-- Tested in the local terminal and on the mock terminal on the deployed site on Heroku.
+    - Users can only enter single alphabetical characters
+    ![Invalid inputs](assets/images/invalid_input.JPG)
 
-[wireframes](assets/images/Python-Man.png)
+    - Users will be warned if they enter a letter they already typed into terminal
+    ![Repetitive guess](assets/images/repetitive_guess.JPG)
 
 
-### **VALIDATOR TESTING**
+- Tested in the local terminal in Gitpod and on the mock terminal on the deployed site on Heroku.
 
 
-## **BUGS**
+### **BUGS**
 
 -   I had an issue with the game when word was guessed successfully, the game wouldn't finish until user used all lives available. The issue got resolved upon changing the code which checked the lenght of the guessed letters and the play_word(masked word). However this worked only on words with non-repeating characters. If word, e.g mixin, had two or more repeating character inside, the game wouldn't count it in. The count method and counter need to be implemented. 
 
 - I originally used [Pypi](https://pypi.org/project/colorama/) to implement red and green colors to differentiate between correct and incorrect input. However it didn't work when deployed to Heroku and I reverted to using a class. 
 
-## **UNFIXED BUGS**
+### **UNFIXED BUGS**
 -   
 
+### VALIDATOR TESTING
+- No errors were returned from [PEP8](http://pep8online.com/)
+
+![PEP8](assets/images/PEP8_linter.JPG)
 
 ## **DEPLOYMENT**
 
@@ -94,18 +110,15 @@ The steps to deploy are as follows:
 
 
 ## **CREDITS**
+- Thanks to Code Institute for the deployment terminal
+- 
 - Thanks to tutors from Tutor Support - namely Sean Murphy and John Traas.
 
 - I used **w3schools** and **docs.python** which helped me understand Python functions and method better. 
 
 - I used colors from [GeeksforGeeks](https://www.geeksforgeeks.org/print-colors-python-terminal/) to implement red, green and yellow colors to differentiate between correct and incorrect input. 
 
-- **CONTENT**
-
-
 - **CODE**
 
-- Code from function delete_last_line() was specifically written for my need by a felow coder on stackoverflow.com as I have tried various solutions to what I wanted to achieve and nothing has worked. 
-
-- 
+- Code from function delete_last_line() was specifically written for my need by a felow coder on stackoverflow.com as I have tried various solutions to what I wanted to achieve and nothing has worked. I commented the relevant code in my *run.py* file.
  
