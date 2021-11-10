@@ -12,38 +12,48 @@ It is a simple terminal game, which runs on a mock terminal on Heroku.
 
 ## **FEATURES**
 ###  **Initial screen**
-    - Welcome text with rules of the game and how to play
-    - Command line asking user for input if they want to play
+- Welcome text with rules of the game and how to play
+- Command line asking user for input if they want to play
 ![Initial screen](assets/images/initial_screen.JPG)
 
 ###  **Random word & number of lives**
-    - If user continues in the game, the next screen will show title PY word and the same number of underscores as letters in the guessed word.
-    - Users are reminded here that have 6 lives.
-    - Command line prompting users to guess a letter
-![Random word](assets/images/initial_screen.JPG)
+- If user continues in the game, the next screen will show title PY word and the same number of underscores as letters in the guessed word.
+- Users are reminded here that have 6 lives.
+- Command line prompting users to guess a letter
+![Random word screen](assets/images/random_word_screen.JPG)
 
 ### **Correct and incorrect guess**
-    - If letter is guessed correctly, text is printed in green telling the user that letter is correct and the PY word will update
-    - If guessed is incorect, the message announcing this is printed in red color
+- If letter is guessed correctly, text is printed in green telling the user that letter is correct and the PY word will update
+- If guessed is incorect, the message announcing this is printed in red color
+![Correct and incorrect guess screens](assets/images/correct_incorrect_guesses.JPG)
 
 ### **Winning screen**
-    - If user wins, the correct guessed word is announced and highlighted in yellow color
-    - Message announcing user lost the game is printed on the screen together with python graphic
-    - Command line asking users if they would like to play again
+- If user wins, the correct guessed word is announced and highlighted in yellow color
+- Message announcing user lost the game is printed on the screen together with python graphic
+- Command line asking users if they would like to play again
 ![Winning screen](assets/images/winning_screen.JPG)
 
 ### **Losing screen**
-    - If user loses, the correct guessed word is announced and highlighted in yellow color
-    - Message announcing user lost the game is printed on the screen together with python graphic
-    - Command line asking users if they would like to play again
+- If user loses, the correct guessed word is announced and highlighted in yellow color
+- Message announcing user lost the game is printed on the screen together with python graphic
+- Command line asking users if they would like to play again
 ![Losing screen](assets/images/losing_screen.JPG)
 
 ## **FUTURE DEVELOPMENT**
-    - Take players names down and create score counter with high scores table
-
+- Take players' names down
+- Create a score counter with high scores table
 
 
 ## **TESTING**
+
+### I have manually tested the project by doing the following:
+
+- Tested python code through a PEP8 Linter using (http://pep8online.com/) and fixed any errors.
+![PEP8](assets/images/PEP8_linter.JPG)
+
+- Manually tested the game in local terminal in Gitpod and in the Code Institute Heroku terminal once deployed
+- I tested the game by using giving invalid inputs to confirm error messages work as intended
+- Tested in the local terminal and on the mock terminal on the deployed site on Heroku.
 
 [wireframes](assets/images/Python-Man.png)
 
