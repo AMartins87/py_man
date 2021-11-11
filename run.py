@@ -122,14 +122,14 @@ def play(first_play=True):
 
     play_word = get_random_word().upper()
     print(play_word)
-    correct_let = "_" * len(play_word)
-    # correct_let = [guessed for guessed in play_word]
+    masked_word = "_" * len(play_word)
+    # masked_word = [guessed for guessed in play_word]
     incorrect_attempts = 6
-    guessed = []  # set of correctly guessed letters
-    incorrect = []  # set of incorrectly guessed letters
+    guessed = []  # list of correctly guessed letters
+    incorrect = []  # list of incorrectly guessed letters
     correct = False
     print(f"     {ColorText.BOLD}{ColorText.CYAN}PY word:{ColorText.WHITE}"
-          f" " + " ".join(correct_let) + "\n")
+          f" " + " ".join(masked_word) + "\n")
     print(f"\n     .....................\n     You have {incorrect_attempts}"
           " lives left\n     .....................\n")
 
@@ -165,7 +165,7 @@ def play(first_play=True):
                       f"     ---\n{ColorText.WHITE}")
             elif incorrect_attempts == 1:
                 print(f"\n     {ColorText.BOLD}{ColorText.CYAN}PY word: "
-                      f"{ColorText.WHITE} " + " ".join(correct_let) + "\n")
+                      f"{ColorText.WHITE} " + " ".join(masked_word) + "\n")
                 print(f"\n     The correct word was {ColorText.BOLD}"
                       f"{ColorText.YELLOW}{play_word}{ColorText.WHITE}.")
                 print("\n     You lossssssssst, the python got you !!!")
@@ -188,27 +188,33 @@ def play(first_play=True):
                     """)
                 restart()
             elif letter in play_word:
-                guessed.append(letter)  # adds the guessed letter into a set
-                correct_let = [
-                    # shows underscores as placements for letters
-                    # if letter is correct, letter replaces underscore
-                    letter if letter in guessed
-                    else '_' for letter in play_word]
+                guessed.append(letter)  # adds the guessed letter into a list
+                # masked_word = [
+                #     # shows underscores as placements for letters
+                #     # if letter is correct, letter replaces underscore
+                #     letter if letter in guessed
+                #     else '_' for letter in play_word]
+                masked_word_list = list(masked_word)
+                indices = [i for i, guess in enumerate(play_word)
+                           if guess == letter]
+                for index in indices:
+                    masked_word_list[index] = letter
+                    masked_word = " ".join(masked_word_list)
                 print(f"\n     {ColorText.GREEN} Great, '{letter}' "
                       f"is in the word.\n     ---\n{ColorText.WHITE}")
                 print(f"\n     {ColorText.BOLD}{ColorText.CYAN}PY word: "
-                      f"{ColorText.WHITE} " + " ".join(correct_let) + "\n")
+                      f"{ColorText.WHITE} " + "".join(masked_word) + "\n")
             else:
                 incorrect_attempts -= 1
                 incorrect.append(letter)
-                # adds the incorrectly guessed letter into a set
+                # adds the incorrectly guessed letter into a list
                 print(f"\n     {ColorText.RED}'{letter}' "
                       f"is not in the word.\n     ---\n{ColorText.WHITE}")
                 print(f"\n     .....................\n     You have "
                       f"{incorrect_attempts} lives left"
                       f"\n     .....................")
                 print(f"\n     {ColorText.BOLD}{ColorText.CYAN}PY word: "
-                      f"{ColorText.WHITE} " + " ".join(correct_let) + "\n")
+                      f"{ColorText.WHITE} " + " ".join(masked_word) + "\n")
 
 
 def restart():
@@ -258,7 +264,7 @@ def restart():
 
 def main():
     """
-    Run all program functions
+    Runs the game
     """
     play()
 

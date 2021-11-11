@@ -14,9 +14,11 @@ It is a simple terminal game, which runs on a mock terminal on Heroku.
 ###  **Initial screen**
 - Welcome text with rules of the game and how to play
 - Command line asking user for input if they want to play
+
 ![Initial screen](assets/images/initial_screen.JPG)
 
 - If user chooses to not play the game, a message will be printed and game will end
+
 ![Random word screen](assets/images/no_play.JPG)
 
 
@@ -61,7 +63,7 @@ It is a simple terminal game, which runs on a mock terminal on Heroku.
 ### I have manually tested the project by doing the following:
 
 - I have two yellow warnings in my python linter in Gitpod due to my two else clauses which don't have break statements
-- Manually tested the game in local terminal in Gitpod and in the Code Institute Heroku terminal once deployed
+- Game was tested in local terminal on Gitpod and in the Code Institute Heroku terminal once deployed
 - I tested the game by using giving invalid inputs to confirm error messages work as intended
     - Users can only enter single alphabetical characters
     ![Invalid inputs](assets/images/invalid_input.JPG)
@@ -70,19 +72,16 @@ It is a simple terminal game, which runs on a mock terminal on Heroku.
     ![Repetitive guess](assets/images/repetitive_guess.JPG)
 
 
-- Tested in the local terminal in Gitpod and on the mock terminal on the deployed site on Heroku.
-
-
 ### **BUGS**
 
--   I had an issue with the game when word was guessed successfully, the game wouldn't finish until user used all lives available. The issue got resolved upon changing the code which checked the lenght of the guessed letters and the play_word(masked word). However this worked only on words with non-repeating characters. If word, e.g mixin, had two or more repeating character inside, the game wouldn't count it in. The count method and counter need to be implemented. 
+-   I had an issue with the game when word was guessed successfully, the game wouldn't finish until user used all lives available. The issue got resolved upon changing the code which checked the lenght of the guessed letters and the play_word(masked word). 
 
-- I originally used [Pypi](https://pypi.org/project/colorama/) to implement red and green colors to differentiate between correct and incorrect input. However it didn't work when deployed to Heroku and I reverted to using a class. 
+- I originally used [Pypi](https://pypi.org/project/colorama/) to implement red and green colors to differentiate between correct and incorrect input. However it didn't work when deployed to Heroku and I have therefore used class ColorText and print colors. 
 
 ### **UNFIXED BUGS**
 -   
 
-### VALIDATOR TESTING
+### **VALIDATOR TESTING**
 - No errors were returned from [PEP8](http://pep8online.com/)
 
 ![PEP8](assets/images/PEP8_linter.JPG)
