@@ -205,7 +205,7 @@ def play(first_play=True):
                 print(f"\n     {ColorText.GREEN} Great, '{letter}' "
                       f"is in the word.\n     ---\n{ColorText.WHITE}")
                 print(f"\n     {ColorText.BOLD}{ColorText.CYAN}PY word: "
-                      f"{ColorText.WHITE} " + "".join(masked_word) + "\n")
+                      f"{ColorText.WHITE} " + " ".join(masked_word) + "\n")
             else:
                 incorrect_attempts -= 1
                 incorrect.append(letter)
