@@ -124,11 +124,8 @@ def play(first_play=True):
     play_word_set = set()
     for letter in play_word:
         play_word_set.add(letter)
-    print(play_word_set)
-    print(len(play_word_set))
     print(play_word)
     masked_word = "_" * len(play_word)
-    # masked_word = [guessed for guessed in play_word]
     incorrect_attempts = 6
     guessed = []  # list of correctly guessed letters
     incorrect = []  # list of incorrectly guessed letters
