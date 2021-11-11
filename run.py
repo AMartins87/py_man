@@ -121,6 +121,11 @@ def play(first_play=True):
             print(f"     {user_choice}")
 
     play_word = get_random_word().upper()
+    play_word_set = set()
+    for letter in play_word:
+        play_word_set.add(letter)
+    print(play_word_set)
+    print(len(play_word_set))
     print(play_word)
     masked_word = "_" * len(play_word)
     # masked_word = [guessed for guessed in play_word]
@@ -134,7 +139,7 @@ def play(first_play=True):
           " lives left\n     .....................\n")
 
     while incorrect_attempts > 0:
-        if len(guessed) == len(play_word):
+        if len(guessed) == len(play_word_set):
             correct = True
             print(f"\n     Well done! {ColorText.BOLD}{ColorText.GREEN}"
                   f"{play_word}{ColorText.BOLD}"
@@ -189,17 +194,17 @@ def play(first_play=True):
                 restart()
             elif letter in play_word:
                 guessed.append(letter)  # adds the guessed letter into a list
-                # masked_word = [
-                #     # shows underscores as placements for letters
-                #     # if letter is correct, letter replaces underscore
-                #     letter if letter in guessed
-                #     else '_' for letter in play_word]
-                masked_word_list = list(masked_word)
-                indices = [i for i, guess in enumerate(play_word)
-                           if guess == letter]
-                for index in indices:
-                    masked_word_list[index] = letter
-                    masked_word = " ".join(masked_word_list)
+                masked_word = [
+                    # shows underscores as placements for letters
+                    # if letter is correct, letter replaces underscore
+                    letter if letter in guessed
+                    else '_' for letter in play_word]
+                # masked_word_list = list(masked_word)
+                # indices = [i for i, guess in enumerate(play_word)
+                #            if guess == letter]
+                # for index in indices:
+                #     masked_word_list[index] = letter
+                #     masked_word = "".join(masked_word_list)
                 print(f"\n     {ColorText.GREEN} Great, '{letter}' "
                       f"is in the word.\n     ---\n{ColorText.WHITE}")
                 print(f"\n     {ColorText.BOLD}{ColorText.CYAN}PY word: "
