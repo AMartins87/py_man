@@ -53,9 +53,6 @@ def get_random_word():
     return play_word.upper()
 
 
-get_random_word()
-
-
 # This function has been created by a coder on stackoverflow.com
 # Due credit given in README.md file
 def delete_last_line():
@@ -98,7 +95,6 @@ def play(first_play=True):
             if user_choice == "Y":
                 delete_last_line()
                 print("     YES\n")
-                get_random_word()
                 break
             elif user_choice == "N":
                 delete_last_line()
@@ -190,18 +186,13 @@ def play(first_play=True):
                     """)
                 restart()
             elif letter in play_word:
-                guessed.append(letter)  # adds the guessed letter into a list
+                guessed.append(letter)
+                # adds a guessed letter into a list
                 masked_word = [
                     # shows underscores as placements for letters
                     # if letter is correct, letter replaces underscore
                     letter if letter in guessed
                     else '_' for letter in play_word]
-                # masked_word_list = list(masked_word)
-                # indices = [i for i, guess in enumerate(play_word)
-                #            if guess == letter]
-                # for index in indices:
-                #     masked_word_list[index] = letter
-                #     masked_word = "".join(masked_word_list)
                 print(f"\n     {ColorText.GREEN} Great, '{letter}' "
                       f"is in the word.\n     ---\n{ColorText.WHITE}")
                 print(f"\n     {ColorText.BOLD}{ColorText.CYAN}PY word: "
@@ -241,7 +232,6 @@ def restart():
         while len(user_choice) >= 1:
             if user_choice == "Y":
                 delete_last_line()
-                # print("     YES\n")
                 play(False)
                 break
             elif user_choice == "N":

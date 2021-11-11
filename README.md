@@ -6,6 +6,8 @@ The PY MAN application is a hangman style game with Python programming language 
 
 It is a simple terminal game, which runs on a mock terminal on Heroku.
 
+Users start with having 6 lives to guess a word 
+
 ![Mock up image](assets/images/mockup.JPG)
 
 *Please press **Ctrl** in Windows or **Command** on Mac button and click for any links which you would like to open in a new tab when in the README.md file*
@@ -56,7 +58,9 @@ It is a simple terminal game, which runs on a mock terminal on Heroku.
 - Create a score counter with high scores table
 
 ## **DATA MODEL**
-- 
+- I'm using a list of words in a separate file called *py_words.py* to get necessary data for the game. The function get_random_word() together with *random* module with *choice* method chooses a word for each time the game is started. 
+
+- You can see at the beginning the letters are replaced by underscores and as the game progresses and user makes correct guesses, the letters are being saved and are replacing the underscores. 
 
 ## **TESTING**
 
