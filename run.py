@@ -126,10 +126,7 @@ def play(first_play=True):
     guessed = []  # list of correctly guessed letters
     incorrect = []  # list of incorrectly guessed letters
     correct = False
-    print(f"     {ColorText.BOLD}{ColorText.CYAN}PY word:{ColorText.WHITE}"
-          f" " + " ".join(masked_word) + "\n")
-    print(f"\n     .....................\n     You have {incorrect_attempts}"
-          " lives left\n     .....................\n")
+    game_stats(masked_word, incorrect_attempts)
 
     while incorrect_attempts > 0:
         if len(guessed) == len(play_word_set):
@@ -161,7 +158,7 @@ def play(first_play=True):
                 print(f"\n     {ColorText.YELLOW}Only one alphabetical"
                       f" character allowed at time.\n"
                       f"     ---\n{ColorText.WHITE}")
-            elif incorrect_attempts == 1:
+            elif incorrect_attempts == 0:
                 print(f"\n     {ColorText.BOLD}{ColorText.CYAN}PY word: "
                       f"{ColorText.WHITE} " + " ".join(masked_word) + "\n")
                 print(f"\n     The correct word was {ColorText.BOLD}"
@@ -203,11 +200,20 @@ def play(first_play=True):
                 # adds the incorrectly guessed letter into a list
                 print(f"\n     {ColorText.RED}'{letter}' "
                       f"is not in the word.\n     ---\n{ColorText.WHITE}")
-                print(f"\n     .....................\n     You have "
-                      f"{incorrect_attempts} lives left"
-                      f"\n     .....................")
-                print(f"\n     {ColorText.BOLD}{ColorText.CYAN}PY word: "
-                      f"{ColorText.WHITE} " + " ".join(masked_word) + "\n")
+                game_stats(masked_word, incorrect_attempts)
+
+
+def game_stats(masked_word, incorrect_attempts):
+    """"
+    This function prints current statistics
+    about player's lives left and status
+    of the guessed word
+    """
+    print(f"\n     .....................\n     You have "
+          f"{incorrect_attempts} lives left"
+          f"\n     .....................")
+    print(f"\n     {ColorText.BOLD}{ColorText.CYAN}PY word: "
+          f"{ColorText.WHITE} " + " ".join(masked_word) + "\n")
 
 
 def restart():
