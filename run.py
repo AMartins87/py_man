@@ -158,34 +158,9 @@ def play(first_play=True):
                 print(f"\n     {ColorText.YELLOW}Only one alphabetical"
                       f" character allowed at time.\n"
                       f"     ---\n{ColorText.WHITE}")
-            elif incorrect_attempts == 1:
                 game_stats(masked_word, incorrect_attempts)
-                # print(f"\n     {ColorText.BOLD}{ColorText.CYAN}PY word: "
-                #       f"{ColorText.WHITE} " + " ".join(masked_word) + "\n")
-                print(f"\n     The correct word was {ColorText.BOLD}"
-                      f"{ColorText.YELLOW}{play_word}{ColorText.WHITE}.")
-                print("\n     You lossssssssst, the python got you !!!")
-                print(r"""
-                            /^\/^\
-                          _|__|  O|
-                    \/      /~  \_/\
-                     \___|________/ \
-                         \_______    \
-                                 \    \
-                                 /    /                          \
-                                /    /                            \
-                               /    /            _----_           \\
-                              /    /         _-~       ~-_         \\
-                             (    (       -~      _--_    ~-_      / |
-                              \    ~-____~-     -~     ~-_    ~-_ / /
-                               \            -~            -~       /
-                                 ~---____-~                 ~-___-
-
-                    """)
-                restart()
             elif letter in play_word:
-                guessed.append(letter)
-                # adds a guessed letter into a list
+                guessed.append(letter)  # adds a guessed letter into a list
                 masked_word = [
                     # shows underscores as placements for letters
                     # if letter is correct, letter replaces underscore
@@ -201,6 +176,28 @@ def play(first_play=True):
                 print(f"\n     {ColorText.RED}'{letter}' "
                       f"is not in the word.\n     ---\n{ColorText.WHITE}")
                 game_stats(masked_word, incorrect_attempts)
+                if incorrect_attempts == 0:
+                    game_stats(masked_word, incorrect_attempts)
+                    print(f"\n     The correct word was {ColorText.BOLD}"
+                          f"{ColorText.YELLOW}{play_word}{ColorText.WHITE}.")
+                    print("\n     You lossssssssst, the python got you !!!")
+                    print(r"""
+                            /^\/^\
+                          _|__|  O|
+                    \/      /~  \_/\
+                     \___|________/ \
+                         \_______    \
+                                 \    \
+                                 /    /                          \
+                                /    /                            \
+                               /    /            _----_           \\
+                              /    /         _-~       ~-_         \\
+                             (    (       -~      _--_    ~-_      / |
+                              \    ~-____~-     -~     ~-_    ~-_ / /
+                               \            -~            -~       /
+                                 ~---____-~                 ~-___-
+                    """)
+                    restart()
 
 
 def game_stats(masked_word, incorrect_attempts):
