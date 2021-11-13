@@ -82,8 +82,8 @@ def play(first_play=True):
     while len(user_choice) == 0:
         if len(user_choice) == 0:
             print(f"\n     Invalid input - only type {ColorText.BOLD}"
-                  f"{ColorText.YELLOW} Y for yes{ColorText.WHITE}"
-                  f" or type {ColorText.BOLD}{ColorText.YELLOW} "
+                  f"{ColorText.YELLOW} Y for yes {ColorText.WHITE}"
+                  f"or type {ColorText.BOLD}{ColorText.YELLOW} "
                   f"N for no{ColorText.WHITE}\n     ---\n")
             user_choice = input("\n     Are you ready to play?"
                                 " (Y/N)\n     ---\n").upper()
@@ -158,9 +158,10 @@ def play(first_play=True):
                 print(f"\n     {ColorText.YELLOW}Only one alphabetical"
                       f" character allowed at time.\n"
                       f"     ---\n{ColorText.WHITE}")
-            elif incorrect_attempts == 0:
-                print(f"\n     {ColorText.BOLD}{ColorText.CYAN}PY word: "
-                      f"{ColorText.WHITE} " + " ".join(masked_word) + "\n")
+            elif incorrect_attempts == 1:
+                game_stats(masked_word, incorrect_attempts)
+                # print(f"\n     {ColorText.BOLD}{ColorText.CYAN}PY word: "
+                #       f"{ColorText.WHITE} " + " ".join(masked_word) + "\n")
                 print(f"\n     The correct word was {ColorText.BOLD}"
                       f"{ColorText.YELLOW}{play_word}{ColorText.WHITE}.")
                 print("\n     You lossssssssst, the python got you !!!")
@@ -192,8 +193,7 @@ def play(first_play=True):
                     else '_' for letter in play_word]
                 print(f"\n     {ColorText.GREEN} Great, '{letter}' "
                       f"is in the word.\n     ---\n{ColorText.WHITE}")
-                print(f"\n     {ColorText.BOLD}{ColorText.CYAN}PY word: "
-                      f"{ColorText.WHITE} " + " ".join(masked_word) + "\n")
+                game_stats(masked_word, incorrect_attempts)
             else:
                 incorrect_attempts -= 1
                 incorrect.append(letter)
@@ -222,9 +222,12 @@ def restart():
     """
     user_choice = input("     Would you like to play again?"
                         " (Y/N)\n     ---\n").upper()
+    delete_last_line()
+    print(f"     {user_choice}")
 
     while len(user_choice) == 0:
         if len(user_choice) == 0:
+            print(f"     {user_choice}")
             print(f"\n     Invalid input - only type {ColorText.BOLD}"
                   f"{ColorText.YELLOW} Y for yes {ColorText.WHITE}"
                   f"or type {ColorText.BOLD}{ColorText.YELLOW} "
