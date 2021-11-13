@@ -91,7 +91,8 @@ def play(first_play=True):
             print(f"     {user_choice}")
 
     else:
-        while len(user_choice) >= 1:
+        while len(user_choice) >= 1 and user_choice != "Y" or \
+              user_choice != "N":
             if user_choice == "Y":
                 delete_last_line()
                 print("     YES\n")
@@ -110,11 +111,11 @@ def play(first_play=True):
                       f" {ColorText.BOLD}{ColorText.WHITE} "
                       f"or type {ColorText.BOLD}{ColorText.YELLOW}N for "
                       f"no{ColorText.BOLD}{ColorText.WHITE}\n     ---\n")
-            user_choice = input("\n     Are you ready to "
-                                "play? (Y/N)\n     "
-                                "---\n").upper()
-            delete_last_line()
-            print(f"     {user_choice}")
+                user_choice = input("\n     Are you ready to "
+                                    "play? (Y/N)\n     "
+                                    "---\n").upper()
+                delete_last_line()
+                print(f"     {user_choice}")
 
     play_word = get_random_word().upper()
     play_word_set = set()
@@ -122,7 +123,7 @@ def play(first_play=True):
         play_word_set.add(letter)
     print(play_word)
     masked_word = "_" * len(play_word)
-    incorrect_attempts = 6
+    incorrect_attempts = 5
     guessed = []  # list of correctly guessed letters
     incorrect = []  # list of incorrectly guessed letters
     correct = False
@@ -177,7 +178,7 @@ def play(first_play=True):
                       f"is not in the word.\n     ---\n{ColorText.WHITE}")
                 game_stats(masked_word, incorrect_attempts)
                 if incorrect_attempts == 0:
-                    game_stats(masked_word, incorrect_attempts)
+                    # game_stats(masked_word, incorrect_attempts)
                     print(f"\n     The correct word was {ColorText.BOLD}"
                           f"{ColorText.YELLOW}{play_word}{ColorText.WHITE}.")
                     print("\n     You lossssssssst, the python got you !!!")
@@ -235,7 +236,8 @@ def restart():
             print(f"     {user_choice}")
 
     else:
-        while len(user_choice) >= 1:
+        while len(user_choice) >= 1 and user_choice != "Y" or \
+              user_choice != "N":
             if user_choice == "Y":
                 delete_last_line()
                 play(False)
