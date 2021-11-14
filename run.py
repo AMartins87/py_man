@@ -109,7 +109,7 @@ def play(first_play=True):
                 print("\n     Too bad, maybe next time!\n")
                 raise SystemExit
             else:
-                # if user puts any other character than Y or N,
+                # If user puts any other character than Y or N,
                 # it will print 'Invalid Input' and it will
                 # reprint user choice command line.
                 print(f"\n     Invalid input - only type {ColorText.bold}"
@@ -129,8 +129,8 @@ def play(first_play=True):
         play_word_set.add(letter)
     masked_word = "_" * len(play_word)
     incorrect_attempts = 5
-    guessed = []  # list of correctly guessed letters
-    incorrect = []  # list of incorrectly guessed letters
+    guessed = []  # List of correctly guessed letters
+    incorrect = []  # List of incorrectly guessed letters
     correct = False
     game_stats(masked_word, incorrect_attempts)
 
@@ -187,7 +187,6 @@ def play(first_play=True):
                       f"is not in the word.\n     ---\n{ColorText.white}")
                 game_stats(masked_word, incorrect_attempts)
                 if incorrect_attempts == 0:
-                    # game_stats(masked_word, incorrect_attempts)
                     print(f"\n     The correct word was {ColorText.bold}"
                           f"{ColorText.yellow}{play_word}{ColorText.white}.")
                     print("\n     You lossssssssst, the python got you !!!")
@@ -259,7 +258,7 @@ def restart():
                 print("\n     Thanks for playing, see you soon!\n")
                 raise SystemExit
             else:
-                # if user puts any other character than Y or N,
+                # If user puts any other character than Y or N,
                 # it will print 'Invalid Input' and it will
                 # reprint user choice command line.
                 print(f"\n     Invalid input - only type {ColorText.bold}"

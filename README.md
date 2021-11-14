@@ -18,11 +18,11 @@ Users start with having 5 lives to guess a word and is shown the rules of the ga
 - Welcome text with rules of the game and how to play
 - Command-line asking users for input if they want to play
 
-![Initial screen](assets/images/screenshots/initial_screen.JPG)
+    ![Initial screen](assets/images/screenshots/initial_screen.JPG)
 
 - If the user chooses to not play the game, a message will be printed and the game will end
 
-![Random word screen](assets/images/input-messages/no_play.JPG)
+    ![Random word screen](assets/images/input-messages/no_play.JPG)
 
 
 ###  **Random word & number of lives**
@@ -30,34 +30,34 @@ Users start with having 5 lives to guess a word and is shown the rules of the ga
 - Users are reminded here that have 5 lives.
 - Command-line prompting users to guess a letter
 
-![Random word screen](assets/images/screenshots/random_word_screen.JPG)
+    ![Random word screen](assets/images/screenshots/random_word_screen.JPG)
 
 ### **Correct and incorrect guess**
 - If a letter is guessed correctly, the text is printed in green telling the user that the letter is correct and the PY word will update
 - If guessed is incorrect, the message announcing this is printed in red color
 
-![Correct and incorrect guess screens](assets/images/input-messages/correct_incorrect_guesses.JPG)
+    ![Correct and incorrect guess screens](assets/images/input-messages/correct_incorrect_guesses.JPG)
 
 ### **Winning screen**
 - If the user wins, the correct guessed word is announced and highlighted in green color
 - Message announcing user won the game is printed on the screen together with a thumbs-up graphic
 - Command-line is printed, asking users if they would like to play again
 
-![Winning screen](assets/images/screenshots/winning_screen.JPG)
+    ![Winning screen](assets/images/screenshots/winning_screen.JPG)
 
 ### **Losing screen**
 - If the user wins, the correct guessed word is announced and highlighted in yellow color
 - Message announcing user lost the game is printed on the screen together with a python graphic
 - Command-line is printed, asking users if they would like to play again
 
-![Losing screen](assets/images/screenshots/losing_screen.JPG)
+    ![Losing screen](assets/images/screenshots/losing_screen.JPG)
 
 ### **Playing again**
 - When users finish the game, they will be asked if they would like to play again
 - ***Yes*** answer will restart the game and a new word will be randomly selected
 - ***No*** will end the game and a message will be printed into the terminal
 
-![Play again?](assets/images/input-messages/play_again_no.JPG)
+    ![Play again?](assets/images/input-messages/play_again_no.JPG)
 
 ## **FUTURE DEVELOPMENT**
 - Take users' names down
@@ -65,6 +65,10 @@ Users start with having 5 lives to guess a word and is shown the rules of the ga
 - More refactoring of the code. I have refactored some of the repetitive code and put it into a smaller function to keep the main function tidy.
 
 ## **DATA MODEL**
+- I created a flow chart before I started coding for this project to help me with the logic and steps throughout the game and the overall thought process. I used [Diagrams](https://app.diagrams.net/?src=about) for my flow chart.
+
+    ![Game flow chart](assets/images/flow_chart_py_man.png)
+
 - The main object of the game is a list of words in a separate file called *py_words.py* to get the necessary data for the game. The function get_random_word() together with *random* library with *choice* method chooses a word for each time the game is started.
 
 - The letters are not shown at the beginning. Underscores work as their replacements and as the game progresses and the user makes correct guesses, the letters are being saved and are replacing the underscores. All guessed letters are saved so they can be checked against the user's input and call out any errors like duplicate input and non-alphabetical input.
@@ -72,11 +76,6 @@ Users start with having 5 lives to guess a word and is shown the rules of the ga
 ## **TESTING**
 
 ### I have manually tested the project by doing the following:
-
-- I created a flow chart before I started coding for this project to help me with the logic and steps throughout the game and the overall thought process. I used [Diagrams](https://app.diagrams.net/?src=about) for my flow chart.
-
-![Game flow chart](assets/images/flow_chart_py_man.png)
-
 - Game was tested in the local terminal on Gitpod and in the Code Institute Heroku terminal once deployed
 - I tested the game by using giving invalid inputs to confirm error messages work as intended
     - Users can only enter single alphabetical characters
@@ -90,13 +89,13 @@ Users start with having 5 lives to guess a word and is shown the rules of the ga
 ### **VALIDATOR TESTING**
 - All python code was checked via [PEP8](http://pep8online.com/) with no errors reported.
 
-![PEP8](assets/images/PEP8_linter.JPG)
+    ![PEP8](assets/images/PEP8_linter.JPG)
 
 ### **BUGS**
 
 - A bug occurred when I built the restart() function as when the user selected Yes, it would ask again, this time from the command line of the play() function. This issue got fixed by giving an argument of first_play and creating different conditions for when the game is played the first time and when the game is restarted. *(lines 70, 78-85)*
 
-![Restart error](assets/images/errors/error_on_restart.JPG)
+    ![Restart error](assets/images/errors/error_on_restart.JPG)
 
 - There was a bug in the game when the masked word was guessed successfully, the game wouldn't finish until the user used all lives available. The issue got resolved upon changing the code which checked the length of the guessed letters against the len(play_word_set) *(lines 127-129 and 138)*
 
