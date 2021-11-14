@@ -59,10 +59,10 @@ def delete_last_line():
     '''
     Use this function to delete the last line in the STDOUT
     '''
-    # cursor up one line
+    # Cursor up one line
     sys.stdout.write('\x1b[1A')
 
-    # delete last line
+    # Deletes last line
     sys.stdout.write('\x1b[2K')
 
 
@@ -70,6 +70,9 @@ def play(first_play=True):
     """
     This function starts the application
     """
+    # Argument first_play is used for a first game only.
+    # It is not used when user chooses to play again
+    # after win or loss.
     if first_play:
         user_choice = input("\n     Are you ready to play?"
                             " (Y/N)\n     ---\n").upper()

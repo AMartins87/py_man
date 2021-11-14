@@ -28,29 +28,34 @@ Users start with having 5 lives to guess a word and is shown the rules of the ga
 - If user continues in the game, the next screen will show title PY word and the same number of underscores as letters in the guessed word.
 - Users are reminded here that have 5 lives.
 - Command line prompting users to guess a letter
+
 ![Random word screen](assets/images/random_word_screen.JPG)
 
 ### **Correct and incorrect guess**
 - If letter is guessed correctly, text is printed in green telling the user that letter is correct and the PY word will update
 - If guessed is incorect, the message announcing this is printed in red color
+
 ![Correct and incorrect guess screens](assets/images/correct_incorrect_guesses.JPG)
 
 ### **Winning screen**
 - If user wins, the correct guessed word is announced and highlighted in yellow color
 - Message announcing user lost the game is printed on the screen together with python graphic
 - Command line asking users if they would like to play again
+
 ![Winning screen](assets/images/winning_screen.JPG)
 
 ### **Losing screen**
 - If user loses, the correct guessed word is announced and highlighted in yellow color
 - Message announcing user lost the game is printed on the screen together with python graphic
 - Command line asking users if they would like to play again
+
 ![Losing screen](assets/images/losing_screen.JPG)
 
 ### **Playing again**
 - When users finish the game, they will be asked if they would like to play again
 - ***Yes*** answer will restart the game and new word will be randomly selected
 - ***No*** will end the game and message will be printed into the terminal
+
 ![Play again?](assets/images/play_again_no.JPG)
 
 ## **FUTURE DEVELOPMENT**
@@ -88,11 +93,13 @@ Users start with having 5 lives to guess a word and is shown the rules of the ga
 
 ### **BUGS**
 
--   There was a bug in the game when the masked word was guessed successfully, the game wouldn't finish until user used all lives available. The issue got resolved upon changing the code which checked the lenght of the guessed letters against the len(play_word_set). 
+- There was a bug in the game when the masked word was guessed successfully, the game wouldn't finish until user used all lives available. The issue got resolved upon changing the code which checked the lenght of the guessed letters against the len(play_word_set). 
 
-- I had an issue when testing the restart function. 
+- A bug occured when I built the restart() function as when user selected Yes, it would ask again, this time from the command line of the play() function. This issue got fixed by giving an argument of first_play and creating different condititions for when game is played first time and when game is restarted.
 
-- I originally used [Pypi](https://pypi.org/project/colorama/) to implement red and green colors to differentiate between correct and incorrect input. However it didn't work when deployed to Heroku and I have therefore used class ColorText and print colors. 
+![Restart error](assets/images/error_on_restart.JPG)
+
+- I originally used [Pypi](https://pypi.org/project/colorama/) to implement red and green colors to differentiate between correct and incorrect input. However it didn't work when deployed to Heroku and I have therefore built a class ColorText and chose foreground colors of cyan, green, red, yellow, white and bold style.
 
 ### **UNFIXED BUGS**
 -   No known bugs left.
@@ -121,14 +128,13 @@ The steps to deploy are as follows:
 
 ## **CREDITS**
 - Thanks to Code Institute for the deployment terminal
-- 
-- Thanks to tutors from Tutor Support - namely Sean and John for guiding me through my issues with repetitive characters not being counted into the masked word and huge thanks to Igor who helped me find a bug in my while statement logic.
+- Huge thanks to my mentor Maria Hynes who again provided with amazing support and encouraged me throughtout the whole project
+- Thanks to tutors from Tutor Support - namely Sean and John for guiding me through my issues with repetitive characters not being counted into the masked word and big thanks to Igor who helped me find a bug in my while statement logic in my play() function.
 
-- I used **w3schools** and **docs.python** which helped me understand Python functions and method better. 
+- I used **w3schools** and **docs.python** which helped me understand Python functions and methods better. 
 
 - I used colors from [GeeksforGeeks](https://www.geeksforgeeks.org/print-colors-python-terminal/) to implement red, green and yellow colors to differentiate between correct and incorrect input. 
 
-- **CODE**
-
+### **CODE**
 - Code from function delete_last_line() was specifically written for my need by a felow coder on stackoverflow.com as I have tried various solutions to what I wanted to achieve and nothing has worked. I commented the relevant code in my *run.py* file.
  
