@@ -3,11 +3,11 @@
 You can see the live site **[here](https://py-man.herokuapp.com/).**
 
 The PY MAN application is a hangman-style game with Python programming language as its theme.
-The target audience can be anyone with an interest in programming languages. This app could also work as just for fun activity for all ages which could spruce an interest in coding
+The target audience can be anyone with an interest in programming languages. This app could also work as just for fun activity for all ages which could attract an interest in coding
 
-It is a simple terminal game, which runs on a mock terminal on Heroku. I wanted to maintain eye-pleasing features throughout the game for a good user experience. I created a five-character left indent and maintained it throughout the game to enable easier readability. All user input is being printed out with the same indent. 
+It is a simple terminal game, which runs on a mock terminal on Heroku. I wanted to maintain eye-pleasing features throughout the game for a good user experience. I created a five-character left indent and maintained it throughout the game to enable easier readability. All user input is also being printed out with the same indent. 
 
-Users start with having 5 lives to guess a word and is shown the rules of the game when the terminal starts up. 
+Rules of the game are shown when the terminal starts up. Users start the game with having 5 lives to guess the word.
 
 ![Mock up image](assets/images/mockup.JPG)
 
@@ -26,43 +26,42 @@ Users start with having 5 lives to guess a word and is shown the rules of the ga
 
 
 ###  **Random word & number of lives**
-- If the user continues in the game, the next screen will show the title PY word and the same number of underscores as letters in the guessed word.
-- Users are reminded here that have 5 lives.
-- Command-line prompting users to guess a letter
+- If the user continues in the game, the next screen will show the title PY word in cyan color, and the same number of underscores as letters in the guessed word.
+- Users are reminded here that they have 5 lives.
+- Command-line is printed, prompting users to guess a letter
 
     ![Random word screen](assets/images/screenshots/random_word_screen.JPG)
 
 ### **Correct and incorrect guess**
 - If a letter is guessed correctly, the text is printed in green telling the user that the letter is correct and the PY word will update
-- If guessed is incorrect, the message announcing this is printed in red color
+- If guessed letter is incorrect, the message announcing this is printed in red color and live will be deducted from the total
 
     ![Correct and incorrect guess screens](assets/images/input-messages/correct_incorrect_guesses.JPG)
 
 ### **Winning screen**
-- If the user wins, the correct guessed word is announced and highlighted in green color
+- If the user wins, the correctly guessed word is announced and highlighted in green color
 - Message announcing user won the game is printed on the screen together with a thumbs-up graphic
 - Command-line is printed, asking users if they would like to play again
 
     ![Winning screen](assets/images/screenshots/winning_screen.JPG)
 
 ### **Losing screen**
-- If the user wins, the correct guessed word is announced and highlighted in yellow color
-- Message announcing user lost the game is printed on the screen together with a python graphic
+- If the user loses, the correct word is printed on the screen and highlighted in yellow color, followed by a printed message, announcing the user lost the game, together with a python graphic
 - Command-line is printed, asking users if they would like to play again
 
     ![Losing screen](assets/images/screenshots/losing_screen.JPG)
 
 ### **Playing again**
-- When users finish the game, they will be asked if they would like to play again
+- When users finish the game, they will be asked if they would like to play again as mentioned in previous section
 - ***Yes*** answer will restart the game and a new word will be randomly selected
 - ***No*** will end the game and a message will be printed into the terminal
 
     ![Play again?](assets/images/input-messages/play_again_no.JPG)
 
 ## **FUTURE DEVELOPMENT**
-- Take users' names down
+- Ask users to type their names into the terminal
 - Create a score counter with high scores table
-- I have refactored some of the repetitive code and put it into a smaller function to keep the main function tid, but I would like to refactor more of my code and split it into smaller functions
+- I have refactored some of the repetitive code, but I would like to refactor more of my code and split it into smaller functions to keep the code tidier.
 
 ## **DATA MODEL**
 - I created a flow chart before I started coding for this project to help me with the logic and steps throughout the game and the overall thought process. I used [Diagrams](https://app.diagrams.net/?src=about) for my flow chart.
@@ -107,7 +106,7 @@ Users start with having 5 lives to guess a word and is shown the rules of the ga
 
 - I originally used [Pypi](https://pypi.org/project/colorama/) to implement red and green colors to differentiate between correct and incorrect input. However it didn't work when deployed to Heroku and I have therefore built a class ColorText and chose foreground colors of cyan, green, red, yellow, white, and bold style.
 
-![Heroku error](assets/images/errors/colorama screenshot.JPG)
+    ![Heroku error](assets/images/errors/colorama_screenshot.JPG)
 
 ### **UNFIXED BUGS**
 -   No known bugs left.
