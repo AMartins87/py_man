@@ -13,6 +13,7 @@ Rules of the game are shown when the terminal starts up. Users start the game wi
 
 *Please press **Ctrl** in Windows or **Command** on Mac button and click for any links which you would like to open in a new tab when in the README.md file*
 
+
 ## **FEATURES**
 ###  **Initial screen**
 - Welcome text with rules of the game and how to play
@@ -58,10 +59,12 @@ Rules of the game are shown when the terminal starts up. Users start the game wi
 
     ![Play again?](assets/images/input-messages/play_again_no.JPG)
 
+
 ## **FUTURE DEVELOPMENT**
 - Ask users to type their names into the terminal
 - Create a score counter with high scores table
 - I have refactored some of the repetitive code, but I would like to refactor more of my code and split it into smaller functions to keep the code tidier.
+
 
 ## **DATA MODEL**
 - I created a flow chart before I started coding for this project to help me with the logic and steps throughout the game and the overall thought process. I used [Diagrams](https://app.diagrams.net/?src=about) for my flow chart.
@@ -77,6 +80,7 @@ Rules of the game are shown when the terminal starts up. Users start the game wi
 - I wanted the main user choices, such as **Y** and **N**, to print as **Yes** or **No** into the terminal which has been enabled with function delete_last_line() as it deletes the actual user input and prints over it with Yes or No statements, depending on their choice.
 
     ![Delete last line input](assets/images/input-messages/delete_last_line_input_print.JPG)
+
 
 ## **TESTING**
 
@@ -111,6 +115,7 @@ Rules of the game are shown when the terminal starts up. Users start the game wi
 ### **UNFIXED BUGS**
 -   No known bugs left.
 
+
 ## **DEPLOYMENT**
 
 The project was deployed using Code Institutes mock terminal for Heroku.
@@ -135,7 +140,7 @@ The steps to deploy are as follows:
 
 ## **CREDITS**
 - Thanks to Code Institute for the deployment terminal
-- Huge thanks to my mentor Maria Hynes who again provided with amazing support and encouraged me throughout the whole project
+- Huge thanks to my mentor Maria Hynes who has again supported support and encouraged me throughout the whole project
 - Thanks to tutors from Tutor Support - namely Sean and John for guiding me through my issues with repetitive characters not being counted into the masked word and big thanks to Igor who helped me find a bug in my while statement logic in my play() function.
 
 - I used **w3schools** and **docs.python** which helped me understand Python functions and methods better. 

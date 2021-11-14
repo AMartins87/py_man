@@ -216,6 +216,7 @@ def game_stats(masked_word, incorrect_attempts):
     of the guessed word
     """
     if incorrect_attempts == 1:
+        # This statement will be printed if only 1 life is left
         print(f"\n     .....................\n     You have "
               f"{incorrect_attempts} life left"
               f"\n     .....................")
