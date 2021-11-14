@@ -25,7 +25,7 @@ class ColorText:
 print(f"     {ColorText.bold}{ColorText.yellow}Welcome to the PY MAN game!"
       f"{ColorText.bold}{ColorText.white}")
 print("     You may have guessed this is a Python themed game (^_^)")
-print("     Rules are same as in the traditional Hangman. You have 6 lives.")
+print("     Rules are same as in the traditional Hangman. You have 5 lives.")
 print("     You will type in letters which you think are part of the word.")
 print("     Only single alphabetical characters are allowed.")
 print("     Good luck!")
@@ -127,7 +127,6 @@ def play(first_play=True):
     play_word_set = set()
     for letter in play_word:
         play_word_set.add(letter)
-    print(play_word)
     masked_word = "_" * len(play_word)
     incorrect_attempts = 5
     guessed = []  # list of correctly guessed letters
