@@ -215,11 +215,18 @@ def game_stats(masked_word, incorrect_attempts):
     about player's lives left and status
     of the guessed word
     """
-    print(f"\n     .....................\n     You have "
-          f"{incorrect_attempts} lives left"
-          f"\n     .....................")
-    print(f"\n     {ColorText.bold}{ColorText.cyan}PY word: "
-          f"{ColorText.white} " + " ".join(masked_word) + "\n")
+    if incorrect_attempts == 1:
+        print(f"\n     .....................\n     You have "
+              f"{incorrect_attempts} life left"
+              f"\n     .....................")
+        print(f"\n     {ColorText.bold}{ColorText.cyan}PY word: "
+              f"{ColorText.white} " + " ".join(masked_word) + "\n")
+    else:
+        print(f"\n     .....................\n     You have "
+              f"{incorrect_attempts} lives left"
+              f"\n     .....................")
+        print(f"\n     {ColorText.bold}{ColorText.cyan}PY word: "
+              f"{ColorText.white} " + " ".join(masked_word) + "\n")
 
 
 def restart():
