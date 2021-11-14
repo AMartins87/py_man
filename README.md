@@ -4,9 +4,9 @@ You can see the live site [here](https://py-man.herokuapp.com/).
 
 The PY MAN application is a hangman style game with Python programming language as its theme. 
 
-It is a simple terminal game, which runs on a mock terminal on Heroku.
+It is a simple terminal game, which runs on a mock terminal on Heroku. I wanted to maintain an eye pleasing features throughout the game for a good user experience. I created a five character indent space from the left and maintained it throughout the game to enable easier readability. All input is being printed out with the indent as well. 
 
-Users start with having 6 lives to guess a word 
+Users start with having 5 lives to guess a word and is shown the rules of the game when the terminal starts up. 
 
 ![Mock up image](assets/images/mockup.JPG)
 
@@ -26,7 +26,7 @@ Users start with having 6 lives to guess a word
 
 ###  **Random word & number of lives**
 - If user continues in the game, the next screen will show title PY word and the same number of underscores as letters in the guessed word.
-- Users are reminded here that have 6 lives.
+- Users are reminded here that have 5 lives.
 - Command line prompting users to guess a letter
 ![Random word screen](assets/images/random_word_screen.JPG)
 
@@ -54,41 +54,48 @@ Users start with having 6 lives to guess a word
 ![Play again?](assets/images/play_again_no.JPG)
 
 ## **FUTURE DEVELOPMENT**
-- Take players' names down
+- Take users' names down
 - Create a score counter with high scores table
+- More refactoring of the code. I have refactored some of the repetitive code and put it into a smaller function to keep the main function tidy.
 
 ## **DATA MODEL**
-- I'm using a list of words in a separate file called *py_words.py* to get necessary data for the game. The function get_random_word() together with *random* module with *choice* method chooses a word for each time the game is started. 
+- The main object of the game is a list of words in a separate file called *py_words.py* to get necessary data for the game. The function get_random_word() together with *random* module with *choice* method chooses a word for each time the game is started. 
 
-- You can see at the beginning the letters are replaced by underscores and as the game progresses and user makes correct guesses, the letters are being saved and are replacing the underscores. 
+- The letters are not shown at the beginning. Underscores work as their replacements and as the game progresses and user makes correct guesses, the letters are being saved and are replacing the underscores. All guessed letters are saved so they can be checked against user's input and call out any errors like duplicate input and non-alphbetical input. 
 
 ## **TESTING**
 
 ### I have manually tested the project by doing the following:
 
-- I have two yellow warnings in my python linter in Gitpod due to my two else clauses which don't have break statements
+- I created a flow chart before I started coding for this project to help me with the logic and steps throughout the game and the overall thought process. I used [Diagrams](https://app.diagrams.net/?src=about) for my flow chart.
+
+![Game flow chart](assets/images/flow_chart_py_man.png)
+
 - Game was tested in local terminal on Gitpod and in the Code Institute Heroku terminal once deployed
 - I tested the game by using giving invalid inputs to confirm error messages work as intended
     - Users can only enter single alphabetical characters
+
     ![Invalid inputs](assets/images/invalid_input.JPG)
 
     - Users will be warned if they enter a letter they already typed into terminal
+
     ![Repetitive guess](assets/images/repetitive_guess.JPG)
-
-
-### **BUGS**
-
--   I had an issue with the game when word was guessed successfully, the game wouldn't finish until user used all lives available. The issue got resolved upon changing the code which checked the lenght of the guessed letters and the play_word(masked word). 
-
-- I originally used [Pypi](https://pypi.org/project/colorama/) to implement red and green colors to differentiate between correct and incorrect input. However it didn't work when deployed to Heroku and I have therefore used class ColorText and print colors. 
-
-### **UNFIXED BUGS**
--   
 
 ### **VALIDATOR TESTING**
 - No errors were returned from [PEP8](http://pep8online.com/)
 
 ![PEP8](assets/images/PEP8_linter.JPG)
+
+### **BUGS**
+
+-   There was a bug in the game when the masked word was guessed successfully, the game wouldn't finish until user used all lives available. The issue got resolved upon changing the code which checked the lenght of the guessed letters against the len(play_word_set). 
+
+- I had an issue when testing the restart function. 
+
+- I originally used [Pypi](https://pypi.org/project/colorama/) to implement red and green colors to differentiate between correct and incorrect input. However it didn't work when deployed to Heroku and I have therefore used class ColorText and print colors. 
+
+### **UNFIXED BUGS**
+-   No known bugs left.
 
 ## **DEPLOYMENT**
 
@@ -115,7 +122,7 @@ The steps to deploy are as follows:
 ## **CREDITS**
 - Thanks to Code Institute for the deployment terminal
 - 
-- Thanks to tutors from Tutor Support - namely Sean Murphy and John Traas.
+- Thanks to tutors from Tutor Support - namely Sean and John for guiding me through my issues with repetitive characters not being counted into the masked word and huge thanks to Igor who helped me find a bug in my while statement logic.
 
 - I used **w3schools** and **docs.python** which helped me understand Python functions and method better. 
 
