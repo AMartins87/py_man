@@ -1,11 +1,11 @@
 # **PY MAN GAME**
 
-You can see the live site [here](https://py-man.herokuapp.com/).
+You can see the live site **[here](https://py-man.herokuapp.com/).**
 
 The PY MAN application is a hangman-style game with Python programming language as its theme.
-The target audience can be anyone with an interest in programming languages but this app could also work as just for fun activity. 
+The target audience can be anyone with an interest in programming languages. This app could also work as just for fun activity for all ages which could spruce an interest in coding
 
-It is a simple terminal game, which runs on a mock terminal on Heroku. I wanted to maintain eye-pleasing features throughout the game for a good user experience. I created a five-character left indent and maintained it throughout the game to enable easier readability. All input is being printed out with the same indent. I wanted the main user choices, such as Y and N, to print as Yes or No into the terminal.
+It is a simple terminal game, which runs on a mock terminal on Heroku. I wanted to maintain eye-pleasing features throughout the game for a good user experience. I created a five-character left indent and maintained it throughout the game to enable easier readability. All user input is being printed out with the same indent. 
 
 Users start with having 5 lives to guess a word and is shown the rules of the game when the terminal starts up. 
 
@@ -62,7 +62,7 @@ Users start with having 5 lives to guess a word and is shown the rules of the ga
 ## **FUTURE DEVELOPMENT**
 - Take users' names down
 - Create a score counter with high scores table
-- More refactoring of the code. I have refactored some of the repetitive code and put it into a smaller function to keep the main function tidy.
+- I have refactored some of the repetitive code and put it into a smaller function to keep the main function tid, but I would like to refactor more of my code and split it into smaller functions
 
 ## **DATA MODEL**
 - I created a flow chart before I started coding for this project to help me with the logic and steps throughout the game and the overall thought process. I used [Diagrams](https://app.diagrams.net/?src=about) for my flow chart.
@@ -71,7 +71,13 @@ Users start with having 5 lives to guess a word and is shown the rules of the ga
 
 - The main object of the game is a list of words in a separate file called *py_words.py* to get the necessary data for the game. The function get_random_word() together with *random* library with *choice* method chooses a word for each time the game is started.
 
-- The letters are not shown at the beginning. Underscores work as their replacements and as the game progresses and the user makes correct guesses, the letters are being saved and are replacing the underscores. All guessed letters are saved so they can be checked against the user's input and call out any errors like duplicate input and non-alphabetical input.
+- The letters are not shown at the beginning. Underscores work as their replacements and as the game progresses and the user makes correct guesses, the letters are being saved and are replacing the underscores. 
+
+- All guessed letters are saved so they can be checked against the user's input and call out any errors like duplicate input and non-alphabetical input as shown in the **TESTING** section.
+
+- I wanted the main user choices, such as **Y** and **N**, to print as **Yes** or **No** into the terminal which has been enabled with function delete_last_line() as it deletes the actual user input and prints over it with Yes or No statements, depending on their choice.
+
+    ![Delete last line input](assets/images/input-messages/delete_last_line_input_print.JPG)
 
 ## **TESTING**
 
