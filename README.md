@@ -34,14 +34,13 @@ Rules of the game are shown when the terminal starts up. Users start the game wi
     ![Random word screen](assets/images/screenshots/random_word_screen.JPG)
 
 ### **Correct and incorrect guess**
-- If a letter is guessed correctly, the text is printed in green telling the user that the letter is correct and the PY word will update
-- If guessed letter is incorrect, the message announcing this is printed in red color and live will be deducted from the total
+- If a letter is guessed correctly, the message is printed in green, telling the user that the letter is correct, and the PY word will update accordingly
+- If guessed letter is incorrect, the message announcing this is printed in red color and life will be deducted from the total
 
     ![Correct and incorrect guess screens](assets/images/input-messages/correct_incorrect_guesses.JPG)
 
 ### **Winning screen**
-- If the user wins, the correctly guessed word is announced and highlighted in green color
-- Message announcing user won the game is printed on the screen together with a thumbs-up graphic
+- If the user wins, the correctly guessed word is printed and highlighted in green color, followed by a printed message, announcing the user won the game, together with a thumbs-up graphic
 - Command-line is printed, asking users if they would like to play again
 
     ![Winning screen](assets/images/screenshots/winning_screen.JPG)
@@ -55,7 +54,7 @@ Rules of the game are shown when the terminal starts up. Users start the game wi
 ### **Playing again**
 - When users finish the game, they will be asked if they would like to play again as mentioned in previous section
 - ***Yes*** answer will restart the game and a new word will be randomly selected
-- ***No*** will end the game and a message will be printed into the terminal
+- ***No*** answer will end the game and a message will be printed into the terminal
 
     ![Play again?](assets/images/input-messages/play_again_no.JPG)
 
@@ -63,7 +62,7 @@ Rules of the game are shown when the terminal starts up. Users start the game wi
 ## **FUTURE DEVELOPMENT**
 - Ask users to type their names into the terminal
 - Create a score counter with high scores table
-- I have refactored some of the repetitive code, but I would like to refactor more of my code and split it into smaller functions to keep the code tidier.
+- I have refactored some of the repetitive code, but I would like to refactor more of my code and split it into smaller functions to keep the code tidier
 
 
 ## **DATA MODEL**
@@ -71,13 +70,13 @@ Rules of the game are shown when the terminal starts up. Users start the game wi
 
     ![Game flow chart](assets/images/flow_chart_py_man.png)
 
-- The main object of the game is a list of words in a separate file called *py_words.py* to get the necessary data for the game. The function get_random_word() together with *random* library with *choice* method chooses a word for each time the game is started.
+- The main object of the game is a list of words in a separate file called **py_words.py** to get the necessary data for the game. The function **get_random_word()** together with *random* library with *choice* method chooses a word for each time the game is started
 
-- The letters are not shown at the beginning. Underscores work as their replacements and as the game progresses and the user makes correct guesses, the letters are being saved and are replacing the underscores. 
+- The letters are not shown at the beginning. Underscores work as their replacements and as the game progresses and the user makes correct guesses, the letters are being saved and underscores are being replaced with them
 
-- All guessed letters are saved so they can be checked against the user's input and call out any errors like duplicate input and non-alphabetical input as shown in the **TESTING** section.
+- All guessed letters are saved in lists so they can be checked against the user's input. The written conditional statements then call out any errors like a duplicate input and a non-alphabetical input as shown in the **TESTING** section
 
-- I wanted the main user choices, such as **Y** and **N**, to print as **Yes** or **No** into the terminal which has been enabled with function delete_last_line() as it deletes the actual user input and prints over it with Yes or No statements, depending on their choice.
+- I wanted the main user choices, such as **Y** and **N**, to print as **Yes** or **No** into the terminal which has been enabled with function **delete_last_line()** as it deletes the actual user input and prints over it with Yes or No statements, depending on their choice
 
     ![Delete last line input](assets/images/input-messages/delete_last_line_input_print.JPG)
 
@@ -102,7 +101,7 @@ Rules of the game are shown when the terminal starts up. Users start the game wi
 
 ### **BUGS**
 
-- A bug occurred when I built the restart() function as when the user selected Yes, it would ask again, this time from the command line of the play() function. This issue got fixed by giving an argument of first_play and creating different conditions for when the game is played the first time and when the game is restarted. *(lines 70, 78-85)*
+- A bug occurred when I built the **restart()** function as when the user selected Yes, it would ask again, this time from the command line of the **play()** function. This issue got fixed by giving an argument of **first_play** and creating different conditions for when the game is played the first time and when the game is restarted. *(lines 70, 78-85)*
 
     ![Restart error](assets/images/errors/error_on_restart.JPG)
 
@@ -139,9 +138,9 @@ The steps to deploy are as follows:
 
 
 ## **CREDITS**
-- Thanks to Code Institute for the deployment terminal
-- Huge thanks to my mentor Maria Hynes who has again supported support and encouraged me throughout the whole project
-- Thanks to tutors from Tutor Support - namely Sean and John for guiding me through my issues with repetitive characters not being counted into the masked word and big thanks to Igor who helped me find a bug in my while statement logic in my play() function.
+- Thanks to **Code Institute** for the deployment terminal
+- Huge thanks to my mentor **Maria Hynes** who has again supported support and encouraged me throughout the whole project
+- Thanks to tutors from **Tutor Support** - namely **Sean** and **John** for guiding me through my issues with repetitive characters not being counted into the masked word and big thanks to **Igor** who helped me find a bug in my while statement logic in my play() function.
 
 - I used **w3schools** and **docs.python** which helped me understand Python functions and methods better. 
 
